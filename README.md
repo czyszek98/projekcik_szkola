@@ -1,1 +1,0 @@
-# projekcik_szkola
