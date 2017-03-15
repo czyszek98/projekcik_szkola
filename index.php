@@ -31,11 +31,11 @@
 		<div id="bottom">
 		
 			<div id="bottom-left">
-				Masz konto? <a href="log-in"><div id="bottom-radius">Zaloguj się!</div></a>
+				Masz konto? <a href="log-in.php"><div id="bottom-radius">Zaloguj się!</div></a>
 			</div>
 			<div id="bottom-right">
 			
-				Nie masz konta?  <a href="sign-in"><div id="bottom-radius">Zajerejestruj się! </div></a>
+				Nie masz konta?  <a href="sign-in.php"><div id="bottom-radius">Zajerejestruj się! </div></a>
 			</div>
 		
 		</div>
