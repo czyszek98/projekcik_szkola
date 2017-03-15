@@ -11,11 +11,17 @@ body
 	
 	
 }
+select
+{
+		color: rgba(0, 0, 0, 0.55);
+		margin-top:5px;
+		padding:5px;
+	
+}
 #form 
 {
-	text-align:center;
-	
-	padding-top:5%;
+	text-align:center;	
+	padding-top:2.5%;
 }
 input
 {
@@ -28,8 +34,16 @@ input
 #footer
 {
 	height:150px;
-	margin-top:13%;
+	margin-top:6%;
 	background-color:#525252;
+}
+#footer2
+{
+	
+	height:150px;
+	margin-top:14%;
+	background-color:#525252;
+	
 }
 #button
 {

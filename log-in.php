@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		
-		<div id="footer">hehe</div>
+		<div id="footer2">hehe</div>
 	
 	</div>
 </body>
