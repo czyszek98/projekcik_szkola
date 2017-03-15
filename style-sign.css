@@ -31,6 +31,10 @@ input
 	
 	
 }
+input:invalid
+{
+        background-color:pink;
+}
 #footer
 {
 	height:150px;

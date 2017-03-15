@@ -9,7 +9,7 @@
 	<div id="content">
 		<div id="up">
 			<div id="up-left">
-				<input value="Wyszukaj.." id="up-left-form" type="text" />
+				<input placeholder="Wyszukaj.." id="up-left-form" type="text" />
 			</div>
 			
 			<div id="up-right">
