@@ -4,6 +4,10 @@ body
 	padding:0 !important; 
 	font-family: 'Poiret One', cursive;
 }
+a 
+{
+	text-decoration:none;
+}
 #content
 {	
 	height:900px;
