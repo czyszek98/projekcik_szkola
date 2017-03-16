@@ -15,15 +15,16 @@
 		<div id="bottom">	
 			<div id="form">
 				<form>
-					Login: </br><input type="login" value=""/></br>
-					Hasło: </br><input type="password" value=""/></br>
-					Powtórz hasło: </br><input type="password" value=""/></br>
-					Email: </br><input type="email" value=""/></br>
-					Typ konta: </br> <select>
-									<option value="Nauczyciel">Nauczyciel</option>
-									<option value="Uczen"/>Student</option>
-								</select>
-					</br>
+					Login: </br><input type="text" name="login" value=""/></br>
+				       Hasło: </br><input type="password" name="password" value=""/></br>
+			      Powtórz hasło: </br><input type="password" name="password" value=""/></br>
+					Email: </br><input type="text" name="email" value=""/></br>
+				    Typ konta: </br> 
+                                        <select>
+                                            <option value="Nauczyciel">Nauczyciel</option>
+                                            <option value="Uczen"/>Student</option>
+                                        </select> </br>
+                                        
 					<input id="button" type="submit" value="Zarejestruj się!" />
 			
 			
@@ -35,4 +36,7 @@
 	
 	</div>
 </body>
+
+    <script src="script.js"></script>
+
 </html>

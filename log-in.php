@@ -4,7 +4,9 @@
 	
 	<link href="style-sign.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        
 </head>
+
 <body>
 	<div id="content">
 	
@@ -13,19 +15,21 @@
 		</div>
 		
 		<div id="bottom">	
-			<div id="form">
-				<form>
-					Login: <input type="login" value=""/></br>
-					Hasło: <input type="password" value=""/></br>
-					<input id="button" type="submit" value="Zaloguj się" />
-			
-			
-				</form>
-			</div>
+                    <div id="form" >
+                      
+                        <form>
+                                Login: <input  name="login" type="text" placeholder="Login" /></br>
+				Hasło:<input  name="password" type="password" placeholder="Password"/></br>
+                                       <input id="button" type="submit" value="Zaloguj się" >
+                        </form>
+                    </div>
 		</div>
 		
 		<div id="footer2">hehe</div>
 	
 	</div>
 </body>
+
+    <script src="script.js"></script>  
+    
 </html>
