@@ -37,16 +37,44 @@ input:invalid
 }
 #footer
 {
-	height:150px;
+	position: fixed;	
+	text-align:center;
+	bottom: 0;
+	height:100px;
 	margin-top:6%;
+	width:100%;
 	background-color:#525252;
 }
-#footer2
+#text-footer
+{
+		padding-top:50px;
+		color:white;
+		font-size:20px;
+}
+#back-footer
+{   	
+	color:white;
+	position:fixed;
+	text-align:left;
+	float:left;
+	bottom:5px;
+}
+.back-footer-right
 {
 	
-	height:150px;
-	margin-top:14%;
-	background-color:#525252;
+	height:75px;
+	width:75px;	
+	right: 2%;	
+	
+	
+}
+.back-footer-left
+{	
+	
+	margin-top:10px;
+	height:85px;
+	width:125px;	
+	right: 150px;		
 	
 }
 #button

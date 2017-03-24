@@ -17,7 +17,7 @@ function validInput(input)
             var reg = /^[a-zA-Z_]{3,}$/g              ////////Wyrazenie regularne definiujace dozwolone loginy
             if (!reg.test(input.value)) 
             {
-                input.setCustomValidity("Invalid field.");
+                input.setCustomValidity("Nie poprawny login.");
                 valid=false;
             }
             else input.setCustomValidity("");
@@ -29,7 +29,7 @@ function validInput(input)
             var reg = /^[a-zA-Z0-9]{6,}$/g              ////////Wyrazenie regularne definiujace dozwolone hasla
             if (!reg.test(input.value)) 
             {
-                input.setCustomValidity("Invalid field.");
+                input.setCustomValidity("Niepoprawne hasło.");
                 valid=false;
             }
             else input.setCustomValidity("");
@@ -41,7 +41,7 @@ function validInput(input)
             var reg = /^[a-zA-Z0-9_.-]+@[a-zA-Z]+\.[a-zA-Z]+$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value)) 
             {
-                input.setCustomValidity("Invalid field.");
+                input.setCustomValidity("Niepoprawny adres e-mail.");
                 valid=false;
             }
             else input.setCustomValidity("");
