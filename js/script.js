@@ -14,7 +14,7 @@ function validInput(input)
         {
             case "login":
 
-            var reg = /^[a-zA-Z_]{3,}$/g              ////////Wyrazenie regularne definiujace dozwolone loginy
+            var reg = /^[a-zA-Z_0-9]{5,}$/g              ////////Wyrazenie regularne definiujace dozwolone loginy
             if (!reg.test(input.value)) 
             {
                 input.setCustomValidity("Nie poprawny login.");
