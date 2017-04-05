@@ -20,7 +20,7 @@ $query="SELECT students.name,students.laset_name FROM users,students WHERE stude
 $result = $mysql->query($query);
 $row2=$result->fetch_assoc();
 
-printf("Hello %s %s !",$row2["name"],$row2["laset_name"]);
+header('Location:user-log-in.php');
 }
 else
 {

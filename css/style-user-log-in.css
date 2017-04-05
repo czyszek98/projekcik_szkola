@@ -1,0 +1,212 @@
+body
+{
+	margin:0 !important;
+	padding:0 !important; 
+	font-family: 'Poiret One', cursive;
+	
+}
+#content
+{
+	min-height:900px;
+	width:100%;
+}
+#left
+{
+	
+	min-height:800px;
+	width:70%;
+	float:left;
+	
+}
+#left-up{
+	height:200px;
+
+}
+#cart
+{
+	position:absolute;
+	margin-top:1%;
+	margin-left:10%;
+	width:20%;
+	height:150px;	
+	position:absolute;
+	position:absolute;
+	top:-20px;
+	font-size:42px;
+	text-align:center;
+	line-height:400%;
+	color:white;
+	
+	
+}
+#cart-one
+{	
+	background-color:  #666;
+	height:150px;
+	width:30%;
+	float:left;
+	border-radius: 0 0 20px 20px;
+	
+}
+#cart-one:hover
+{
+	background-color:  white;
+	color:black;	
+	box-shadow:inset 0px 0px 2px 3px rgb(122,122,122);
+	font-weight: bold;
+}
+
+#cart-two
+{	
+	
+	margin-left:5%;
+	background-color: #222;
+	height:150px;
+	width:30%;
+	float:left;	
+	border-radius: 0 0 20px 20px;
+	
+}
+#cart-two:hover
+{
+	background-color:  white;
+	color:black;
+	box-shadow:inset 0px 0px 2px 3px rgb(0,0,0);
+	    font-weight: bold;
+	
+}
+#logo 
+{
+	padding-left: 75%;
+	padding-top:2.5%;	
+}
+#left-content{
+	margin-left:2.5%;
+	min-height:600px;
+	width:100%;
+	border: 1px solid grey;
+	
+}
+#right
+{
+	width:25%;
+	min-height:800px;	
+	float:left;
+	margin-left:3.5%;
+	
+
+}
+#profile
+{
+	background-image:url(http://www.centralevangelicalchurch.co.uk/wp-content/uploads/2013/01/background-grey-1080-35.jpg);
+	min-height:650px;
+	margin:5%;
+	border: 2px solid grey;
+	box-shadow: 10px 10px 10px 0px rgba(155,155,155,1);
+	
+	
+}
+#avatar
+{
+	
+	position:relative;
+	height:250px;
+	text-align:center;
+	margin:auto;
+	margin-top:10%;
+}
+#avatar-img
+{
+	position:relative;
+	margin:auto;
+	
+}
+#avatar-login
+{
+	position:relative;
+	color:white;
+	font-size:18px;
+	line-height:200%;		
+	width:auto;
+	height:50px;
+	margin:auto;
+	
+	
+}
+ul li {
+		position:relative;
+		list-style-type:none;
+		margin-top:10%;
+		font-size:25px;
+		left:-30%;		
+		display:block;
+		background-color: #AAA;
+		height:50px;
+		width:250px;
+		box-shadow: 5px 5px 2px 0px rgba(155,155,155,1);
+		
+	}
+	ul li:hover
+	{
+		background: linear-gradient(to bottom, rgba(219,225,188,1) 0%, rgba(179,211,18,1) 100%);
+		
+		
+	}
+#title-settings
+	{
+		position:relative;
+		left: 35px;
+		font-weight:bold;
+		color: #656565;
+			
+	}
+#description-settings
+{	
+	position:relative;
+	left:35px;
+	top:-7px;
+	font-size:14px;
+	color:white;
+	
+}
+	
+#settings{
+	
+	
+	width:50%;
+	min-height:400px;
+	margin:auto;
+	
+}
+#user-point
+{	padding-right: 15px;
+	text-align:right;
+	
+}
+#footer
+{
+
+	position:absolute;
+	text-align:center;
+	bottom: 0;
+	height:100px;
+	margin-top:6%;
+	width:100%;
+	background-color:#525252;
+}
+#text-footer
+{
+		padding-top:50px;
+		color:white;
+		font-size:20px;
+}
+#back-footer
+{   	
+	color:white;
+	position:fixed;
+	text-align:left;
+	float:left;
+	bottom:15px;
+	left:15px;
+}
+
