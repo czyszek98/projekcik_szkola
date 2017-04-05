@@ -84,7 +84,8 @@ body
 	margin-left:2.5%;
 	min-height:600px;
 	width:100%;
-	border: 1px solid grey;
+	border: 1px solid rgb(166,166,166);
+	box-shadow: inset 0px 0px 13px 3px rgba(166,166,166,1);
 	
 }
 #right
@@ -164,7 +165,7 @@ ul li {
 {	
 	position:relative;
 	left:35px;
-	top:-7px;
+	top:-9px;
 	font-size:14px;
 	color:white;
 	

@@ -20,7 +20,7 @@ session_start();
 					<div id="logo"> <a href="index.html">  <img src="http://morethangamers.com/landingpage2/img/companies/growup.png"  height="100px" width="auto"/></a></div> 
 					
 				</div>
-			<div id="left-content"></div>
+			<div id="left-content">Proponuje to miejsce na te wszystkie lekcje i inne pierdoły</div>
 			
 		</div>
 		
