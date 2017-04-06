@@ -20,3 +20,38 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function signUp(submit)
+{
+    var check=true;
+    var inputs=submit.parentElement.getElementsByTagName("input");
+    for(var i=0;i<inputs.length;i++)
+    {
+        if(inputs[i].checkValidity() == false) check=false;  
+    }
+    if(check)
+    {
+        var response;
+        var msg={
+        "login":submit.parentElement.elements["login"].value,
+        "password":submit.parentElement.elements["password"].value,
+        "email":submit.parentElement.elements["email"].value,
+        "account_type":submit.parentElement.elements["account_type"].value
+        };
+        alert(JSON.stringify(msg));
+        
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+           response  = JSON.parse(this.responseText);
+           if(response.code == 200) window.location.href=response.url;
+           else alert(response.error);
+        }
+        };
+        
+        xhttp.open("POST", "php/register.php",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("request="+JSON.stringify(msg));
+        
+    }
+}
