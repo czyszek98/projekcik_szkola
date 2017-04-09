@@ -65,7 +65,7 @@ function validInput(input)
 return false;
     
 };
-function validation(form)
+function validForm(form)
 {
 
     var inputs = form.getElementsByTagName("input");
@@ -74,23 +74,29 @@ function validation(form)
         switch(inputs[i].getAttribute("name"))
         {
             case "signUp":
-                inputs[i].onclick = function(){checkForm(this);signUp(this);};
+                inputs[i].addEventListener('click', function(){checkForm(this);signUp(this);});
+            break;
+            
+            case "signIn":
+                inputs[i].addEventListener('click', function(){checkForm(this);signIn(this);});
             break;
             
             case "password":
-                inputs[i].onchange = function(){validInput(this);validInput(this.parentElement.confirm_password);};
+                inputs[i].addEventListener('keyup', function(){validInput(this);if(form.signUp!=null)validInput(this.parentElement.confirm_password);});
             break;
             
         default:
-            inputs[i].onchange = function(){validInput(this);};
+            inputs[i].addEventListener('keyup', function(){validInput(this);});
         }
     }
 };
 
-
+function validation()
+{
     var forms = document.getElementsByTagName("form");
     for(var i=0;i<forms.length;i++)
     {
-        validation(forms[i]);
+        validForm(forms[i]);
     }
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+};
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

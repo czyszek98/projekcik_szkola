@@ -2,35 +2,87 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link href="css/style.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">        
+	<link href="css/style-user-log-in.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">       
+        <script src="js/service.js"></script>
+        <script>
+            if(getCookie("login")=="")window.location.href="http://localhost/projekcik_szkola/sign-in.html";
+        </script>
 </head>
 <body>
-	<div id="container">
+	<div id="content">
 	
-		<div id="up">	
-			<div id="logo"> <a href="index.html"> <img src="http://morethangamers.com/landingpage2/img/companies/growup.png"  height="250px" width="auto"/></a></div>
+		<div id="left">	
+				<div id="left-up">
+					<div id="cart">
+						<div id="cart-one">L</div>
+						<div id="cart-two">P</div>
+					</div>
+					<div id="logo"> <a href="index.html">  <img src="http://morethangamers.com/landingpage2/img/companies/growup.png"  height="100px" width="auto"/></a></div> 
+					
+				</div>
+			<div id="left-content">Proponuje to miejsce na te wszystkie lekcje i inne pierdoĹ‚y</div>
+			
 		</div>
 		
-<div id="center">
-            <div id="nav">
-            asd
-            </div>
-                
-            <div id="content">
-            asd
-            </div>
-</div>
-		<div style="clear: both;"></div>
-                
+		<div id="right">	
+            <div id="profile">
+				<div id="avatar">
+					<div id="avatar-img"><img style="box-shadow: 0px 0px 16px 6px rgba(122,122,122,1);" src="http://mylokalesuche.ch/bw/wp-content/uploads/2016/10/avatar-1577909_960_720.png" width="100px" height="auto"/></div>
+					<div id="avatar-login">
+						<div id="avatar-name"><h2>Witaj <span onload=""></span></h2>
+						
+							<span style="top:-20px; position:relative;">	
+								Â° zmieĹ„ hasĹ‚o </br>
+                                                                <span onclick="logout()">Â° wyloguj siÄ™</span> </span>
+						
+						</div>					
+					</div>
+					
+				</div>
+				<div id="settings">
+					<ul>
+						<li>
+							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="description-settings">Opis kaĹĽdej opcji</span>
+						</li>
+						<li>
+							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="description-settings">Opis kaĹĽdej opcji</span>
+						</li>
+						<li>
+							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="description-settings">Opis kaĹĽdej opcji</span>
+						</li>
+						<li>
+							<span id="title-settings">Motywy</span></br>
+							<span id="description-settings">MoĹĽesz tutaj zmieniÄ‡ wyglÄ…d strony</span>
+						</li>
+						<li>
+							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="description-settings">Opis kaĹĽdej opcji</span>
+						</li>
+						<li>
+							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="description-settings">Opis kaĹĽdej opcji</span>
+						</li>
+					</ul>
+				
+				
+				
+				</div>
+				<div id="user-point"><h3>Twoje punkty: 123</h3></div>				
+             </div>
+		</div>
+		
 			<div id="footer">
-				<div id="text-footer"> Strona zaprojektowana przez Karolinę Kudlińską, Mateusza Czyszewskiego, Mikołaja Gromelskiego i Pawła Leśniewskiego ® © </div>
-	
+				<div id="text-footer"> Strona zaprojektowana przez KarolinÄ™ KudliĹ„skÄ…, Mateusza Czyszewskiego, MikoĹ‚aja Gromelskiego i PawĹ‚a LeĹ›niewskiego Â® Â© </div>
+				<div id="back-footer" class="back-footer-left">PowrĂłt do gĹ‚Ăłwnej strony: </div><div id="back-footer" class="back-footer-right"><a href="index.html"><img src="https://www.materialui.co/materialIcons/navigation/arrow_back_white_192x192.png" width="auto" height="75px" /></a></div>
 			</div>
 	
 	</div>
 </body>
 
-    <script src="js/service.js"></script>  
+
     
 </html>

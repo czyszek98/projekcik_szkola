@@ -3,7 +3,7 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+};
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -19,7 +19,12 @@ function getCookie(cname) {
         }
     }
     return "";
-}
+};
+
+function removeCookie(cname)
+{
+    setCookie(cname,"",0);
+};
 
 function signUp(submit)
 {
@@ -54,4 +59,53 @@ function signUp(submit)
         xhttp.send("request="+JSON.stringify(msg));
         
     }
+};
+
+function signIn(submit)
+{
+    var check=true;
+    var inputs=submit.parentElement.getElementsByTagName("input");
+    for(var i=0;i<inputs.length;i++)
+    {
+        if(inputs[i].checkValidity() == false) check=false;  
+    }
+    if(check)
+    {
+        var login=submit.parentElement.elements["login"].value;
+        var password=submit.parentElement.elements["password"].value;
+        var response;
+        var msg={
+        "login":login,
+        "password":password
+        };
+        alert(JSON.stringify(msg));
+        
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+           response  = JSON.parse(this.responseText);
+           if(response.code == 200)
+           {
+               setCookie("login",login,1);
+               setCookie("password",password,1);
+
+               window.location.href=response.url;
+           }
+           else alert(response.error);
+        }
+        };
+        
+        xhttp.open("POST", "php/login.php",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("request="+JSON.stringify(msg));
+        
+    }
+};
+
+function logout()
+{
+    removeCookie("login");
+    removeCookie("password");
+    window.location.href="http://localhost/projekcik_szkola/sign-in.html";
 }
+

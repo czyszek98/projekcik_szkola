@@ -1,30 +1,25 @@
 <?php
-session_start();
-
-$login = $_POST["login"];
-$password = $_POST["password"];
 
 include "connect.php";
 
-$query="select * from users where login='".$login."' and password='".$password."'";
+$json = $_POST["request"];
+
+$obj = json_decode($json);
+
+
+
+$query="select * from users where login='".$obj->login."' and password='".$obj->password."'";
 
 $result = $mysql->query($query);
 
 if($result->num_rows == 1)
 {
-$_SESSION["login"] = $_POST["login"];
-$_SESSION["password"] = $_POST["password"];
-$row=$result->fetch_assoc();
-$query="SELECT students.name,students.laset_name FROM users,students WHERE students.user_id='".$row["id"]."';";
-
-$result = $mysql->query($query);
-$row2=$result->fetch_assoc();
-
-header('Location:user-log-in.php');
+    echo '{"code":200,"url":"http://localhost/projekcik_szkola/profile.html"}';
+//header('Location:user-log-in.php');
 }
 else
 {
-    echo "Z造 login lub has這.";
+    echo '{"code":-1,"error":"Z造 login lub has這."}';
    // header('Location:../sign-in.html');
 }
 
