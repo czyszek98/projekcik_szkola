@@ -1,4 +1,37 @@
+/////////////////////////////////Operacje na ciasteczkach////////////////////////////////////
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+};
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+};
+
+function removeCookie(cname)
+{
+    setCookie(cname,"",0);
+};
+/////////////////////////////////////////////////////////////////////
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+};
 /////////////////////////////////WALIDACJA FORMULARZY////////////////////////////////////
+
 function checkForm(submit)
 {
     
@@ -99,4 +132,22 @@ function validation()
         validForm(forms[i]);
     }
 };
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+
+
+function sendPostRequest(msg,url, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+        {
+            //alert(xmlHttp.responseText);
+            callback(JSON.parse(xmlHttp.responseText));
+        }
+        }; 
+        xmlHttp.open("POST", url,true);
+        xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttp.send("request="+JSON.stringify(msg));
+};
+
