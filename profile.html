@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<link href="css/style-user-log-in.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">       
+        <script src="js/script.js"></script>
         <script src="js/service.js"></script>
         <script>
             if(getCookie("login")=="")window.location.href="http://localhost/projekcik_szkola/sign-in.html";
@@ -30,7 +31,7 @@
 				<div id="avatar">
 					<div id="avatar-img"><img style="box-shadow: 0px 0px 16px 6px rgba(122,122,122,1);" src="http://mylokalesuche.ch/bw/wp-content/uploads/2016/10/avatar-1577909_960_720.png" width="100px" height="auto"/></div>
 					<div id="avatar-login">
-						<div id="avatar-name"><h2>Witaj <span onload=""></span></h2>
+						<div id="avatar-name"><h2>Witaj <span class="user_name"></span></h2>
 						
 							<span style="top:-20px; position:relative;">	
 								Â° zmieĹ„ hasĹ‚o </br>
@@ -43,7 +44,7 @@
 				<div id="settings">
 					<ul>
 						<li>
-							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="title-settings" onclick="loadProfile()">Mój Profil</span></br>
 							<span id="description-settings">Opis kaĹĽdej opcji</span>
 						</li>
 						<li>
@@ -63,7 +64,7 @@
 							<span id="description-settings">Opis kaĹĽdej opcji</span>
 						</li>
 						<li>
-							<span id="title-settings">SĹ‚owo</span></br>
+							<span id="title-settings">Ustawienia</span></br>
 							<span id="description-settings">Opis kaĹĽdej opcji</span>
 						</li>
 					</ul>
