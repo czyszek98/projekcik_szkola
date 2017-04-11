@@ -19,10 +19,19 @@ if($result->num_rows == 1)
     
     $query="select * from students where user_id='".$user_id."'";
     
+    if($obj->element == "login" || $obj->element == "password" || $obj->element == "email")
+    {
+        $mysql->query("UPDATE users SET ".$obj->element."='".$obj->text."' WHERE id=".$user["id"]);
+    }
+    else
+    {
+        $mysql->query("UPDATE students SET ".$obj->element."='".$obj->text."' WHERE user_id=".$user["id"]);
+    }
+    
     $result2 = $mysql->query($query);
     $student=$result2->fetch_assoc();
     
-    echo '{"code":200,"name":"'.$student['name'].'","lastName":"'.$student['laset_name'].'","email":"'.$user['email'].'","class":"'.$student['class'].'"}';
+    echo '{"code":200}';
 //header('Location:user-log-in.php');
 }
 else

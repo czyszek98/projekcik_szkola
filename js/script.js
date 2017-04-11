@@ -93,9 +93,21 @@ function validInput(input)
             
             break;
             
+            case "word":
+
+            var reg = /^[a-zA-Z]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
+            if (!reg.test(input.value)) 
+            {
+                input.setCustomValidity("Dozwolone s¹ tylko ma³e i wielkie litery.");
+                valid=false;
+            }
+            else input.setCustomValidity("");
+            
+            break;
+            
         }
     
-return false;
+return valid;
     
 };
 function validForm(form)
@@ -132,7 +144,36 @@ function validation()
         validForm(forms[i]);
     }
 };
+
+function validText(text,type,show=true)
+{
+    var input=document.createElement("input");
+    input.name=type;
+    input.value=text;
+    if(!validInput(input))
+    {
+        if(show)alert(input.validationMessage);
+        return false;
+    }
+    return true;
+    
+};
 //////////////////////////////////////////////////////////////////////////
+
+function addNewElement(tagName,className,destination,innerHtml,event="",_function="")
+{
+     var text = document.createElement(tagName);
+              text.className=className;
+              text.innerHTML=innerHtml;
+              destination.appendChild(text);
+              if(_function !== "") text.addEventListener(event,_function);
+              return text;
+};
+
+
+
+
+
 
 
 
@@ -150,4 +191,5 @@ function sendPostRequest(msg,url, callback)
         xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlHttp.send("request="+JSON.stringify(msg));
 };
+
 
