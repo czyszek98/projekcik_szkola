@@ -1,4 +1,4 @@
-/////////////////////////////////Operacje na ciasteczkach////////////////////////////////////
+﻿/////////////////////////////////Operacje na ciasteczkach////////////////////////////////////
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -95,7 +95,7 @@ function validInput(input)
             
             case "word":
 
-            var reg = /^[a-zA-Z]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
+            var reg = /^[a-zA-ZąĄęĘćĆłŁóÓńŃżŻźŹ]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value)) 
             {
                 input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");

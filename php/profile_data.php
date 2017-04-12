@@ -22,6 +22,32 @@ if($result->num_rows == 1)
     $result2 = $mysql->query($query);
     $student=$result2->fetch_assoc();
     
+    if(!isset($student['name']))
+    {
+        $student['name']="bark";
+    }
+    elseif($student['name']=="")
+    {
+        $student['name']="bark";
+    }
+    
+    if(!isset($student["laset_name"]))
+    {
+        $student["laset_name"]="bark";
+    }
+    elseif($student['laset_name']=="")
+    {
+        $student['laset_name']="bark";
+    }
+    if(!isset($student['class'])) 
+    {
+        $student['class']="bark";
+    }
+        elseif($student['class']=="")
+    {
+        $student['class']="bark";
+    }
+    
     echo '{"code":200,"name":"'.$student['name'].'","lastName":"'.$student['laset_name'].'","email":"'.$user['email'].'","class":"'.$student['class'].'"}';
 //header('Location:user-log-in.php');
 }
