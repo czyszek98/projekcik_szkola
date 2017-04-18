@@ -227,6 +227,47 @@ ul li {
 	padding:10px;
 	
 }
+.buttonClass
+{
+	position: absolute; top: 50%; right: 0; bottom: 0; left: 0; margin: auto;
+		
+	width:300px;
+	height:50px;
+	background: #0bdf00;
+    border: 1px solid rgba(33, 68, 72, 0.1);
+	color: rgba(0, 0, 0, 0.55);
+	background: rgba(210,255,82,1);
+	background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 47%, rgba(145,232,66,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(47%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+	background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 47%, rgba(145,232,66,1) 100%);
+	background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 47%, rgba(145,232,66,1) 100%);
+	background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 47%, rgba(145,232,66,1) 100%);
+	background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 47%, rgba(145,232,66,1) 100%);
+	
+}
+.themeClass
+{
+	position:relative;
+	top:40%;
+	padding: 15px;
+	float:left;
+}.inputTheme
+{
+	position:relative;
+	top:40%;
+	margin:25px;
+	width:120px;
+	height:50px;
+}
+.themeElement
+{
+	position:relative;
+	top:40%;
+	width:100px;
+	height:70px;
+	margin:15px;
+	float:left;
+}
 .tile
 {
 	width:20%;

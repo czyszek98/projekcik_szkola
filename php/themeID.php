@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 include "connect.php";
 
@@ -6,14 +6,34 @@ $json = $_POST["request"];
 
 $obj = json_decode($json);
 
+	$respone=(object)[];
+	$respone->name=(array)[];
+	$respone->id=(array)[];
 	
-	$query="SELECT id FROM `theme` ORDER BY id DESC LIMIT 1 ";
+	$query="SELECT * FROM `theme`";
 		
 	$result = $mysql->query($query);
 
-	$idTheme = $result->fetch_assoc();
-    $id_theme=$idTheme["id"];
-	echo '{"idTheme":'.$id_theme.'}';
+	
+
+		$i=0;
+	while($idTheme = $result->fetch_assoc())
+	{
+		$respone->id[$i]=$idTheme["id"];
+		$respone->name[$i]=$idTheme["themeName"];
+		$i++;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	echo json_encode($respone);
 	
 
 
