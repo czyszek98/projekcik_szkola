@@ -9,16 +9,11 @@ function themeContent(){
 	
 	for(var i=1; i <= themeIndex; i++)
 	{
-	 var divTheme = document.createElement("DIV");
-	 divTheme.style.width="110px";
-	 divTheme.style.height="110px";
-	 divTheme.style.backgroundColor="blue";
+	 var divTheme = document.createElement("DIV");	
 	 divTheme.id=i;
-	 divTheme.innerHTML="heh";	 
-	 divTheme.style.margin="20px";	
-	 divTheme.style.padding="20px";
+	 addNewElement("p", "" , divTheme ,  "heh");	
 	 divTheme.style.float="left";	
-	 divTheme.className="themeClass";
+	 divTheme.className="tile";
 	 divTheme.addEventListener("click", function(){setTheme(this);});
 	 content.appendChild(divTheme);	 
 	}

@@ -3,11 +3,21 @@ body
 	margin:0 !important;
 	padding:0 !important; 
 	font-family: 'Poiret One', cursive;
+	height:1050px;
 }
 #logo 
 {
-	margin-top:2.5%;
+	padding-top:2.5%;
 	text-align:center;
+	
+	
+}
+#content
+{
+	width:100%;
+	min-height:100%;
+	position:relative;
+	
 	
 	
 }
@@ -37,46 +47,22 @@ input:invalid
 }
 #footer
 {
-	position: fixed;	
+
+	position:absolute;
 	text-align:center;
-	bottom: 0;
-	height:100px;
-	margin-top:6%;
+	bottom: -30px;
+	height:100px;	
 	width:100%;
 	background-color:#525252;
 }
 #text-footer
 {
+		position:relative;
 		padding-top:50px;
-		color:white;
+		color:red;
 		font-size:20px;
 }
-#back-footer
-{   	
-	color:white;
-	position:fixed;
-	text-align:left;
-	float:left;
-	bottom:5px;
-}
-.back-footer-right
-{
-	
-	height:75px;
-	width:75px;	
-	right: 2%;	
-	
-	
-}
-.back-footer-left
-{	
-	
-	margin-top:10px;
-	height:85px;
-	width:125px;	
-	right: 150px;		
-	
-}
+
 #button
 {
 	width:250px;
