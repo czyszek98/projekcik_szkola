@@ -198,7 +198,7 @@ ul li {
 #text-footer
 {
 		padding-top:50px;
-		color:white;
+		color:red;
 		font-size:20px;
 }
 #back-footer
@@ -210,4 +210,33 @@ ul li {
 	bottom:15px;
 	left:15px;
 }
-
+#tiles
+{
+	padding:10px 10px 10px 10px;
+	
+}
+.tile
+{
+	width:20%;
+	height:14vw;
+	background-color:green;
+	float:left;
+	margin:2.5%;
+	text-align:center;
+	font-size:20px;
+	
+	
+}
+.tile>p
+{
+	margin-top:40%;
+	font-weight:bold;
+}
+.tile:hover
+{
+	background-color:#4c9900;
+}
+.tile:active
+{
+	background-color:#66cc00;
+}
