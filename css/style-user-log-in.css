@@ -82,11 +82,11 @@ body
 }
 #left-content{
 	margin-left:2.5%;
-	min-height:600px;
+	height:600px;
 	width:100%;
 	border: 1px solid rgb(166,166,166);
 	box-shadow: inset 0px 0px 13px 3px rgba(166,166,166,1);
-	
+	overflow:auto;
 }
 #right
 {
@@ -99,7 +99,7 @@ body
 }
 #profile
 {
-	background-image:url(http://www.centralevangelicalchurch.co.uk/wp-content/uploads/2013/01/background-grey-1080-35.jpg);
+	background-color:#DDD;
 	min-height:650px;
 	margin:5%;
 	border: 2px solid grey;
