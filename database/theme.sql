@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Kwi 2017, 18:59
+-- Czas generowania: 19 Kwi 2017, 01:38
 -- Wersja serwera: 10.1.19-MariaDB
 -- Wersja PHP: 5.6.28
 
@@ -41,7 +41,9 @@ CREATE TABLE `theme` (
 INSERT INTO `theme` (`id`, `themeName`, `backgroundColor`, `footerColor`, `profileColor`) VALUES
 (1, 'Dziwny Motyw', '#AAA', '#555', '#a50bbb'),
 (2, 'Nie wiem', '#BBB', '#CCC', '#EEE'),
-(3, 'Ładny motyw', '#f0e7df', '#001833', '#95a0a9');
+(3, 'Ladny motyw', '#f0e7df', '#001833', '#95a0a9'),
+(4, 'Drewniana purpura', '#ccccccb3', '#5f606f', '#3E2828'),
+(6, 'Lazurowe wybrzeze', '#c0a999a', '#c990bea', '#aab900');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -61,7 +63,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT dla tabeli `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
