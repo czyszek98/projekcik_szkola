@@ -198,7 +198,7 @@ ul li {
 #text-footer
 {
 		padding-top:50px;
-		color:white;
+		color:red;
 		font-size:20px;
 }
 #back-footer
@@ -211,3 +211,19 @@ ul li {
 	left:15px;
 }
 
+.tile
+{
+	width:100px;
+	height:100px;
+	background-color:green;
+	float:left;
+	margin:20px;
+}
+.tile:hover
+{
+	background-color:#4c9900;
+}
+.tile:active
+{
+	background-color:#66cc00;
+}
