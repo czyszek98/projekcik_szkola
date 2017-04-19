@@ -90,6 +90,7 @@ function edit(text,type,url="",name="")
                     {
                         text.innerHTML=newText;
                         if(type==="login" || type==="password") setCookie(type,newText,1);
+                        document.getElementById("user_name").innerHTML=getCookie("login");
                     }
                     else 
                     {
