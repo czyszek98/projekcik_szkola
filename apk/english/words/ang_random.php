@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <?php
-	$mysqli = new mysqli('localhost', 'root', "", 'apk');
+	$mysqli = new mysqli('localhost', 'root', "", 'school');
 	$result = $mysqli->query("SELECT * FROM `words` ORDER BY RAND() LIMIT 1");
 	$row = $result->fetch_assoc();
 	$ang= $row["ang"];

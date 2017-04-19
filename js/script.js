@@ -95,7 +95,7 @@ function validInput(input)
             
             case "word":
 
-            var reg = /^[a-zA-ZąĄęĘćĆłŁóÓńŃżŻźŹ]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
+            var reg = /^[a-zA-ZąĄę�?ćĆł�?óÓń�?żŻźŹ]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value)) 
             {
                 input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
@@ -179,11 +179,12 @@ function addNewElement(tagName,className,destination,innerHtml,event="",_functio
 
 function sendPostRequest(msg,url, callback)
 {
+   // alert(JSON.stringify(msg));
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         {
-            //alert(xmlHttp.responseText);
+            //console.log(xmlHttp.responseText);
             callback(JSON.parse(xmlHttp.responseText));
         }
         }; 

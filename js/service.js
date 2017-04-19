@@ -147,4 +147,95 @@ function loadProfile()
         });
   
 };
+function loadUrl(url)
+{
+              
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              var frameset=addNewElement("frameset","",content,"");
+              var frame=addNewElement("frame","",frameset,"");
+              frame.src=url;
+                
+};
 
+function loadSubjectApps(subjectId)
+{
+      var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password"),
+      "subjectId":parseInt(subjectId.getAttribute("name"))
+  };
+
+  
+           sendPostRequest(msg,"php/subjectApps.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              
+              for(var i=0;i<response.id.length;i++)
+              {
+                  
+                  var subject = addNewElement("div","tile",content,"<p>"+response.name[i]+"</p>","click",function(){loadUrl(this.name);});
+                  subject.name=response.url[i];
+                 
+                  
+                  
+                   if(response.background[i][0] === '#')
+                   {
+                       subject.style.backgroundColor=response.background[i];
+                   }
+                   else
+                   {
+                       subject.style.backgroundImage="url('"+response.background[i]+"')";
+                       subject.style.backgroundSize="100% 100%";
+                   }
+                  
+
+              }
+
+             
+           }
+           else alert(response.error);
+        
+        });
+};
+function loadApps()
+{
+  var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password")
+  };
+
+  
+           sendPostRequest(msg,"php/apps_data.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              
+              for(var i=0;i<response.id.length;i++)
+              {
+                  var subject = addNewElement("div","tile",content,"<p>"+response.name[i]+"</p>","click",function(){loadSubjectApps(this);});
+                  subject.setAttribute("name",response.id[i]);
+                  
+                   if(response.background[i][0] === '#')
+                   {
+                       subject.style.backgroundColor=response.background[i];
+                   }
+                   else
+                   {
+                       subject.style.backgroundImage="url('"+response.background[i]+"')";
+                       subject.style.backgroundSize="100% 100%";
+                   }
+                  
+
+              }
+
+             
+           }
+           else alert(response.error);
+        
+        });
+  
+};
