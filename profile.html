@@ -11,7 +11,7 @@
             if(getCookie("login")=="")window.location.href="http://localhost/projekcik_szkola/sign-in.html";
         </script>
 </head>
-<body>
+<body onload="themeLoad()">
 	<div id="content">
 	
 		<div id="left">	
@@ -67,16 +67,8 @@
 							<span id="description-settings">Zobacz lub zmień swoje dane</span>
 						</li>
 						<li>
-							<span id="title-settings">Moje lekcje</span></br>
-							<span id="description-settings">Zobacz zaczęte lekcje oraz postęp</span>
-						</li>
-						<li>
 							<span id="title-settings">Moja klasa</span></br>
 							<span id="description-settings">Zobacz postęp i skład swojej klasy</span>
-						</li>
-						<li>
-							<span id="title-settings">Aplikacje</span></br>
-							<span id="description-settings">Aplikacje, które pomogą ci w nauce</span>
 						</li>
 						<li onclick="themeContent()">
 							<span id="title-settings">Motywy</span></br>

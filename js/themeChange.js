@@ -1,3 +1,29 @@
+function themeLoad(){
+	var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password")
+	};
+
+	 sendPostRequest(msg,"php/themeOnload.php", function(respone){
+			
+			  var BColor= respone.backgroundColor;
+			  var FColor=respone.footerColor;
+			  var PColor= respone.profileColor;	
+			
+			  var footer=document.getElementById("footer");
+			  footer.style.backgroundColor=FColor;
+			  
+			  var bodi=document.body;
+			  bodi.style.backgroundColor=BColor;
+			  
+			  var profile=document.getElementById("profile");
+			  profile.style.backgroundColor=PColor;
+		
+		
+	 });
+	
+
+};
 function themeContent(){
 	
 	 var content=document.getElementById("left-content");
@@ -21,7 +47,9 @@ function themeContent(){
 	
 		var addTheme=addNewElement("div", "tile" , content ,  "");	 
 		
-	 	addNewElement("img", "" , addTheme ,  "").src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-transparent-glass-icons-alphanumeric/068118-3d-transparent-glass-icon-alphanumeric-plus-sign.png"; 
+	 	imgPlus=addNewElement("img", "imgTheme" , addTheme ,  "").src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-transparent-glass-icons-alphanumeric/068118-3d-transparent-glass-icon-alphanumeric-plus-sign.png"; 
+		
+		
 		addTheme.addEventListener("click", addThemeFunction);
 	 });
 	 		 	
@@ -33,24 +61,31 @@ function addThemeFunction()
 	var content=document.getElementById("left-content");
 	content.innerHTML="";
 	
-	addNewElement("p", "themeClass" , content ,  "Wybierz kolor tła!"); 	
-	var inputColor=addNewElement("input", "themeElement" , content ,  ""); 
+	var divThemeInput=addNewElement("div", "tile" , content  ,  ""); 
+	divThemeInput.style.height="50%";
+	addNewElement("p", "" , divThemeInput ,  "Wybierz kolor tła!"); 	
+	var inputColor=addNewElement("input", "" , divThemeInput ,  ""); 
 	inputColor.type="color";
 	inputColor.id="backgroundInput";
 	
-	addNewElement("p", "themeClass" , content ,  "Wybierz kolor profilu!"); 	
-	inputColor=addNewElement("input", "themeElement" , content ,  ""); 
+	divThemeInput=addNewElement("div", "tile" , content  ,  ""); 
+	divThemeInput.style.height="50%";
+	addNewElement("p", "" , divThemeInput ,  "Wybierz kolor profilu!"); 	
+	inputColor=addNewElement("input", "" , divThemeInput ,  ""); 
 	inputColor.type="color";
 	inputColor.id="profileInput";
 	
-	addNewElement("p", "themeClass" , content ,  "Wybierz kolor stopki!"); 	
-	inputColor=addNewElement("input", "themeElement" , content ,  ""); 
+	divThemeInput=addNewElement("div", "tile" , content  ,  ""); 
+	divThemeInput.style.height="50%";
+	addNewElement("p", "" , divThemeInput ,  "Wybierz kolor stopki!"); 	
+	inputColor=addNewElement("input", "" , divThemeInput ,  ""); 
 	inputColor.type="color";
 	inputColor.id="footerInput";
 	
-	
-	addNewElement("p", "themeClass" , content ,  "Nazwij swój motyw!"); 	
-	inputColor=addNewElement("input", "inputTheme" , content ,  ""); 
+	divThemeInput=addNewElement("div", "tile" , content  ,  ""); 	
+	divThemeInput.style.height="50%";
+	addNewElement("p", "" , divThemeInput ,  "Nazwij swój motyw!"); 	
+	inputColor=addNewElement("input", "" , divThemeInput ,  ""); 
 	inputColor.id="inputText";
 	inputColor.width="70px";
 	inputColor.height="50px";
@@ -78,6 +113,7 @@ function addingTheme()
 	
 	});
 	themeContent();
+	
 }
 function setTheme(element){
 	
