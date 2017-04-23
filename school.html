@@ -15,7 +15,7 @@
 
         </script>
 </head>
-<body>
+<body onload="">
 	<div id="content">
 	
 		<div id="left">	
@@ -31,7 +31,7 @@
 
 			<div id="left-content">
 				<div id="tiles">
-					<div class="tile"><p>J.polski</p></div>
+                                    <a href='#{"action":"asd","content":"dobre"}'><div class="tile"><p>J.polski</p></div></a>
 					<div class="tile"><p>J.angielski</p></div>
 					<div class="tile"><p>J.niemiecki</p></div>
 					<div class="tile"><p>Matematyka</p></div>
@@ -76,11 +76,14 @@
 							<span id="title-settings">Zadania</span></br>
 							<span id="description-settings">Zobacz zaczęte lekcje oraz postęp</span>
 						</li>
-						<li onclick="loadApps()">
+                                                
+                                                <li onclick="">
+                                                <a href='#{"action":"subjectapp"}'>   
 							<span id="title-settings">Aplikacje</span></br>
 							<span id="description-settings">Aplikacje, które pomogą ci w nauce</span>
-						</li>
-
+						</a>
+                                                </li>
+                                                
 					</ul>
 				
 				
@@ -101,6 +104,7 @@
 
 <script>
     document.getElementById("user_name").innerHTML=getCookie("login");
+    controller();
 </script>
     
 </html>

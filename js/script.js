@@ -184,7 +184,7 @@ function sendPostRequest(msg,url, callback)
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         {
-            //console.log(xmlHttp.responseText);
+            console.log(xmlHttp.responseText);
             callback(JSON.parse(xmlHttp.responseText));
         }
         }; 

@@ -164,7 +164,7 @@ function loadSubjectApps(subjectId)
       var msg={
       "login":getCookie("login"),
       "password":getCookie("password"),
-      "subjectId":parseInt(subjectId.getAttribute("name"))
+      "subjectId":parseInt(subjectId)
   };
 
   
@@ -176,10 +176,10 @@ function loadSubjectApps(subjectId)
               
               for(var i=0;i<response.id.length;i++)
               {
-                  
-                  var subject = addNewElement("div","tile",content,"<p>"+response.name[i]+"</p>","click",function(){loadUrl(this.name);});
-                  subject.name=response.url[i];
-                 
+                  var hash={"action":"apk","apkUrl":response.url[i]};
+                  var link = addNewElement("a","",content,"");
+                  link.setAttribute("href","#"+JSON.stringify(hash));
+                  var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
                   
                   
                    if(response.background[i][0] === '#')
@@ -217,8 +217,11 @@ function loadApps()
               
               for(var i=0;i<response.id.length;i++)
               {
-                  var subject = addNewElement("div","tile",content,"<p>"+response.name[i]+"</p>","click",function(){loadSubjectApps(this);});
-                  subject.setAttribute("name",response.id[i]);
+                  var hash={"action":"apps","subjectId":response.id[i]};
+                  var link = addNewElement("a","",content,"");
+                  link.setAttribute("href","#"+JSON.stringify(hash));
+                  var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
+                  
                   
                    if(response.background[i][0] === '#')
                    {
@@ -239,4 +242,37 @@ function loadApps()
         
         });
   
+};
+function controller()
+{   console.log("halo tu controller");
+    window.onload = window.onhashchange =
+    function(){
+        var str =window.location.hash;
+        console.log(str.slice(1,str.length));
+        var hash = JSON.parse(str.slice(1,str.length));
+        
+        switch(hash.action)
+        {
+          case "subjectapp":
+            loadApps();   
+          break;
+          
+          case "apps":
+            loadSubjectApps(hash.subjectId);   
+          break;
+          
+          case "apk":
+            loadUrl(hash.apkUrl);   
+          break;
+          
+          case "profile":
+            loadProfile();   
+          break;
+          
+          case "theme":
+            themeContent(); 
+          break;
+        }
+        
+    };
 };

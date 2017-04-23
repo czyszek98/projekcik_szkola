@@ -17,7 +17,7 @@ $query="select * from users where login='".$obj->login."' and password='".$obj->
 	
 
 		$query="SELECT backgroundColor, footerColor, profileColor FROM theme WHERE theme.id=$id";
-		$result = $mysql->query($query);		
+		$result = $mysql->query($query);	
 		$themeContent= $result->fetch_assoc();
 		
 		 $backgroundColor=$themeContent["backgroundColor"];
