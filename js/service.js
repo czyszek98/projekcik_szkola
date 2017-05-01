@@ -244,7 +244,7 @@ function loadApps()
   
 };
 function controller()
-{   console.log("halo tu controller");
+{   console.log("halo, policja");
     window.onload = window.onhashchange =
     function(){
         var str =window.location.hash;

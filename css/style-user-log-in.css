@@ -222,6 +222,19 @@ ul li {
 	width:100%;
 	background-color:#525252;
 }
+.tableGym
+{
+	padding:20px;
+	border:1px solid grey;
+	
+}
+.gymVarious
+{
+	text-align:left;
+	font-size:26px;
+	padding:3%;
+	
+}
 #text-footer
 {
 		position:relative;

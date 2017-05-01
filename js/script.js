@@ -179,7 +179,7 @@ function addNewElement(tagName,className,destination,innerHtml,event="",_functio
 
 function sendPostRequest(msg,url, callback)
 {
-   // alert(JSON.stringify(msg));
+   //alert(JSON.stringify(msg));
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
