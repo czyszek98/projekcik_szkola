@@ -9,11 +9,12 @@ function gymContent()
 	 
 	 sendPostRequest(msg,"php/gym.php", function(respone)
 	 {
-			
+		
+		alert("chuj");
 		 
 	});
-	createGym();
 	
+	createGym();
 	
 };
 function createGym()
@@ -56,13 +57,13 @@ function createGym()
 	var trTable=addNewElement("tr", "tableGym" , table ,  "");	
 	addNewElement("td", "tableGym" , trTable ,  "Wycisk na klatkę piersiową:");	
 	addNewElement("td", "tableGym" , trTable ,  "2:");	
-	var trTable=addNewElement("tr", "tableGym" , table ,  "");	
+	trTable=addNewElement("tr", "tableGym" , table ,  "");	
 	addNewElement("td", "tableGym" , trTable ,  "Martwy ciąg:");	
 	addNewElement("td", "tableGym" , trTable ,  "2:");	
-	var trTable=addNewElement("tr", "tableGym" , table ,  "");	
+	trTable=addNewElement("tr", "tableGym" , table ,  "");	
 	addNewElement("td", "tableGym" , trTable ,  "Przysiad:");	
 	addNewElement("td", "tableGym" , trTable ,  "2:");	
-	var trTable=addNewElement("tr", "tableGym" , table ,  "");	
+	trTable=addNewElement("tr", "tableGym" , table ,  "");	
 	addNewElement("td", "tableGym" , trTable ,  "Podciągnięcia nadchwytem:");	
 	addNewElement("td", "tableGym" , trTable ,  "2:");		
 	
