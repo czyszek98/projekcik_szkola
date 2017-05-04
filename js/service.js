@@ -159,6 +159,7 @@ function loadUrl(url)
                 
 };
 
+
 function loadSubjectApps(subjectId)
 {
       var msg={
@@ -200,6 +201,8 @@ function loadSubjectApps(subjectId)
            else alert(response.error);
         
         });
+        
+        
 };
 function loadApps()
 {
@@ -243,36 +246,174 @@ function loadApps()
         });
   
 };
+
+function loadAllLessons()
+{
+  var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password")
+  };
+
+  
+           sendPostRequest(msg,"php/lessons_data.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              
+              for(var i=0;i<response.id.length;i++)
+              {
+                  var hash={"action":"subjectlessons","subjectId":response.id[i]};
+                  var link = addNewElement("a","",content,"");
+                  link.setAttribute("href","#"+JSON.stringify(hash));
+                  var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
+                  
+                  
+                   if(response.background[i][0] === '#')
+                   {
+                       subject.style.backgroundColor=response.background[i];
+                   }
+                   else
+                   {
+                       subject.style.backgroundImage="url('"+response.background[i]+"')";
+                       subject.style.backgroundSize="100% 100%";
+                   }
+                  
+
+              }
+
+             
+           }
+           else alert(response.error);
+        
+        });
+  
+};
+
+function subjectLessons(subjectId)
+{
+      var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password"),
+      "subjectId":parseInt(subjectId)
+  };
+
+  
+           sendPostRequest(msg,"php/subjectLessons.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              
+              for(var i=0;i<response.id.length;i++)
+              {
+                  var hash={"action":"lesson","lessonId":response.id[i]};
+                  var link = addNewElement("a","",content,"");
+                  link.setAttribute("href","#"+JSON.stringify(hash));
+                  var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
+                  
+                  
+                   if(response.background[i][0] === '#')
+                   {
+                       subject.style.backgroundColor=response.background[i];
+                   }
+                   else
+                   {
+                       subject.style.backgroundImage="url('"+response.background[i]+"')";
+                       subject.style.backgroundSize="100% 100%";
+                   }
+                  
+
+              }
+
+             
+           }
+           else alert(response.error);
+        
+        });
+        
+        
+};
+function loadLesson(lessonId)
+{
+      var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password"),
+      "lessonId":parseInt(lessonId)
+  };
+
+  
+           sendPostRequest(msg,"php/lesson.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var content=document.getElementById("left-content");
+              content.innerHTML="";
+              
+              for(var i=0;i<response.content.tagName.length;i++)
+              {
+                  
+                  addNewElement(response.content.tagName[i],"",content,response.content.innerHtml[i],"click",function(){edit(this,"word");});
+
+              }
+
+             
+           }
+           else alert(response.error);
+        
+        });
+
+};
+
 function controller()
 {   console.log("halo, policja");
     window.onload = window.onhashchange =
     function(){
         var str =window.location.hash;
-        console.log(str.slice(1,str.length));
-        var hash = JSON.parse(str.slice(1,str.length));
-        
-        switch(hash.action)
+        if(str!=="")
         {
-          case "subjectapp":
-            loadApps();   
-          break;
-          
-          case "apps":
-            loadSubjectApps(hash.subjectId);   
-          break;
-          
-          case "apk":
-            loadUrl(hash.apkUrl);   
-          break;
-          
-          case "profile":
-            loadProfile();   
-          break;
-          
-          case "theme":
-            themeContent(); 
-          break;
+            console.log(str.slice(1,str.length));
+            var hash = JSON.parse(str.slice(1,str.length));
+
+            switch(hash.action)
+            {
+              case "subjectapp":
+                loadApps();   
+              break;
+              
+              case "alllessons":
+                loadAllLessons();   
+              break;
+              
+              case "subjectlessons":
+                subjectLessons(hash.subjectId);   
+              break;
+              
+              case "lesson":
+                loadLesson(hash.lessonId);   
+              break;
+
+              case "apps":
+                loadSubjectApps(hash.subjectId);   
+              break;
+
+              case "apk":
+                loadUrl(hash.apkUrl);   
+              break;
+
+              case "profile":
+                loadProfile();   
+              break;
+
+              case "theme":
+                themeContent(); 
+              break;
+              
+              default:
+                      var content=document.getElementById("left-content");
+                      content.innerHTML="ERROR 404 NIE ZNALEZIONO STRONY";
+              break;
+              
+            }
         }
-        
     };
 };
