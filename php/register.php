@@ -30,11 +30,26 @@ else
 $query="INSERT INTO `users`(`login`, `password`, `email`, `account_type`) VALUES ('$obj->login','$obj->password','$obj->email','$obj->account_type')";    
 
 $result = $mysql->query($query);
-	
-$response->url="http://localhost/projekcik_szkola/php/user-log-in.php";
+
+$pyt="select * from users where login='".$obj->login."' and password='".$obj->password."'";
+
+	$result = $mysql->query($pyt);
+	$results= $result->fetch_assoc();
+	$user_id=$results['id'];
+
+
+$wys1="INSERT INTO gym (id, id_user, Plan, weight, height, kcal, goal) VALUES ('', $user_id, '', '', '', '', '')";
+$result = $mysql->query($wys1);
+
+$wys2="INSERT INTO gymstats (id, id_user, Chest, DeadLift, Sit, MuscleUp) VALUES ('', $user_id, '', '', '', '')";
+$result = $mysql->query($wys2);
+
+$response->url="http://localhost/projekcik_szkola/profile.html";
 $response->code=200;
 
 echo json_encode($response);
 }
+
+?>
 
 
