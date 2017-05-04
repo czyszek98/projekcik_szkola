@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Czas generowania: 19 Kwi 2017, 04:54
+-- Wersja serwera: 10.1.21-MariaDB
+-- Wersja PHP: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Baza danych: `school`
 --
@@ -28,57 +46,6 @@ INSERT INTO `apps` (`subject_id`, `name`, `background`, `url`) VALUES
 (5, 'Słówka', '#9ccc00', 'asd'),
 (6, 'Slowka', '#9ccc00', 'http://localhost/projekcik_szkola/apk/english/words/ang_random.php'),
 (6, 'asd', '#ceeeaa', 'https://lotari.pl/imageprocessor?m=normal&f=https://t2.ftcdn.net/jpg/00/86/55/17/1000_F_86551738_UAtKOWHQrGJn6778zj1NKREqdM5XE5RZ.jpg');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `gym`
---
-
-CREATE TABLE `gym` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `Plan` text COLLATE utf8_polish_ci NOT NULL,
-  `weight` int(11) NOT NULL,
-  `height` int(11) NOT NULL,
-  `kcal` int(11) NOT NULL,
-  `goal` text COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `gym`
---
-
-INSERT INTO `gym` (`id`, `id_user`, `Plan`, `weight`, `height`, `kcal`, `goal`) VALUES
-(1, 13, 'Nie stwierdzony', 85, 183, 3400, '0'),
-(2, 1, 'Heh', 15, 15, 200, 'Nic'),
-(4, 14, '', 0, 0, 0, ''),
-(5, 15, '', 83, 183, 0, '');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `gymstats`
---
-
-CREATE TABLE `gymstats` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `Chest` int(11) NOT NULL,
-  `DeadLift` int(11) NOT NULL,
-  `Sit` int(11) NOT NULL,
-  `MuscleUp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `gymstats`
---
-
-INSERT INTO `gymstats` (`id`, `id_user`, `Chest`, `DeadLift`, `Sit`, `MuscleUp`) VALUES
-(1, 13, 81, 123, 156, 12),
-(2, 1, 12, 12, 22, 2),
-(4, 14, 0, 0, 0, 0),
-(5, 15, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -150,8 +117,7 @@ INSERT INTO `theme` (`id`, `themeName`, `backgroundColor`, `footerColor`, `profi
 (3, 'Ladny motyw', '#f0e7df', '#001833', '#95a0a9'),
 (4, 'Drewniana purpura', '#ccccccb3', '#5f606f', '#3E2828'),
 (6, 'Lazurowe wybrzeze', '#c0a999a', '#c990bea', '#aab900'),
-(13, 'kukurydza', '#24e7f7', '#f4f05b', '#5afe77'),
-(14, 'Wika v2', '#d4d4d4', '#000000', '#575757');
+(13, 'kukurydza', '#24e7f7', '#f4f05b', '#5afe77');
 
 -- --------------------------------------------------------
 
@@ -161,7 +127,6 @@ INSERT INTO `theme` (`id`, `themeName`, `backgroundColor`, `footerColor`, `profi
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `idTheme` int(11) NOT NULL,
   `login` text COLLATE utf8_polish_ci NOT NULL,
   `password` text COLLATE utf8_polish_ci NOT NULL,
   `email` text COLLATE utf8_polish_ci NOT NULL,
@@ -172,11 +137,18 @@ CREATE TABLE `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `idTheme`, `login`, `password`, `email`, `account_type`) VALUES
-(1, 14, 'andre1', 'andrzej99', 'andrzejek@gmail.com', 'S'),
-(13, 2, 'testowekonto', 'haslohaslo', 'lesniak@wp.pl', 'T'),
-(14, 0, 'heheheheh112', 'heheheheh112', 'hehe@ws.pl', 'T'),
-(15, 0, 'andrzejstachu', 'stachujones', 'sdhehe@ws.pl', 'T');
+INSERT INTO `users` (`id`, `login`, `password`, `email`, `account_type`) VALUES
+(1, 'andre1', 'andrzej99', 'andrzejek@gmail.com', 'S'),
+(2, 'stefan98', 'stefan98', 'stefan98@gmail.com', 'S'),
+(3, 'andrea', 'haselko', 'email@email.ciom', 's'),
+(4, 'andreas', 'haselko', 'emfail@email.ciom', 'T'),
+(5, 'anddreas', 'haselko', 'emdfail@email.ciom', 'T'),
+(6, 'anddrehas', 'haselko', 'emdfahil@email.ciom', 'T'),
+(7, 'anddrehasd', 'dsaqdsad', 'emdfahil@emsail.ciom', 'T'),
+(8, 'asdasdasd', 'asdasda', 'asdasd@asd.dsa', 'T'),
+(9, 'andre', 'asdasd', 'asdasd@asd.dsa', 'T'),
+(10, 'andre', 'asdasd', 'asdasd@asd.dsa', 'T'),
+(11, 'andreo', 'asdasd', 'asd@asd.asd', 'T');
 
 -- --------------------------------------------------------
 
@@ -206,18 +178,6 @@ INSERT INTO `words` (`ang`, `pol`) VALUES
 --
 
 --
--- Indexes for table `gym`
---
-ALTER TABLE `gym`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gymstats`
---
-ALTER TABLE `gymstats`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
@@ -240,16 +200,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `gym`
---
-ALTER TABLE `gym`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT dla tabeli `gymstats`
---
-ALTER TABLE `gymstats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
 -- AUTO_INCREMENT dla tabeli `subjects`
 --
 ALTER TABLE `subjects`
@@ -258,12 +208,12 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT dla tabeli `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
