@@ -2,35 +2,42 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link href="css/style-user-log-in.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">       
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">     
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/dimensions.js"></script>
         <script src="js/script.js"></script>
         <script src="js/service.js"></script>
-		<script src="js/gym.js"></script>
+		 <script src="js/gym.js"></script>
 		 <script src="js/themeChange.js"></script>
         <script>
-            if(getCookie("login")=="")
-            {
-                window.location.href="http://localhost/projekcik_szkola/sign-in.html";
-            }
-
+            if(getCookie("login")=="")window.location.href="http://localhost/projekcik_szkola/sign-in.html";
         </script>
 </head>
 <body onload="themeLoad()">
-	<div id="content">
+	<div id="container">
 	
-		<div id="left">	
-				<div id="left-up">
+	
+<div id="logo"> 
+
 					<div id="cart">
-                                                <div id="cart-two">N</div>
-						<a href="http://localhost/projekcik_szkola/profile.html"><div id="cart-one">P</div></a>
+                                                <div id="cart-two">Nauka</div>
+						<a href="http://localhost/projekcik_szkola/profile.html"><div id="cart-one">Profil</div></a>
 						
 					</div>
-					<div id="logo"> <a href="index.html">  <img src="img/logo_small.png"  /></a></div> 
 					
-				</div>
+<a href="index.html">  <img height=100px" src="img/logo_small.png" /></a>
 
-			<div id="left-content">
+</div> 
+
+
+
+	
+					
+
+
+			<div id="content">
 				<div id="tiles">
                                     <a href='#{"action":"asd","content":"dobre"}'><div class="tile"><p>J.polski</p></div></a>
 					<div class="tile"><p>J.angielski</p></div>
@@ -52,38 +59,36 @@
 
 		</div>
 		
-		<div id="right">	
-            <div id="profile">
-				<div id="avatar">
-					<div id="avatar-img"><img style="box-shadow: 0px 0px 16px 6px rgba(122,122,122,1);" src="http://mylokalesuche.ch/bw/wp-content/uploads/2016/10/avatar-1577909_960_720.png" width="100px" height="auto"/></div>
-					<div id="avatar-login">
-						<div id="avatar-name"><h2>Witaj <span id="user_name"></span></h2>
-						
-							<span style="top:-20px; position:relative;">	
-								
-                                                                <span onclick="logout()">Wyloguj się</span> </span>
-						
-						</div>					
-					</div>
+		<div id="menu">	
+			<img onclick="menu()" id="menu-button" src="img/menu_arrow.png" />	
+				<div id="user-profile">
+					<div id="user-profile-avatar"><img style="box-shadow: 0px 0px 16px 6px rgba(122,122,122,1);" src="http://mylokalesuche.ch/bw/wp-content/uploads/2016/10/avatar-1577909_960_720.png" width="100px" height="auto"/></div>
 					
+					<div id="user-profile-login">
+						 
+						 <span id="user-profile-greeting">Witaj <span id="user-name">Andre</span></span> </br>							
+						<span id="user-profile-logout" onclick="logout()">Wyloguj się</span> 
+						
+					</div>					
 				</div>
-				<div id="settings">
+				
+				<div id="settings" onclick="menu()">
 					<ul>
 						<li >
                                                 <a href='#{"action":"alllessons"}'> 
-							<span id="title-settings">Lekcje</span></br>
-							<span id="description-settings">Zobacz lub zmień swoje dane</span>
+							<span id="settings-title">Lekcje</span></br>
+							<span id="settings-description">Zobacz lub zmień swoje dane</span>
                                                 </a>
 						</li>
 						<li>
-							<span id="title-settings">Zadania</span></br>
-							<span id="description-settings">Zobacz zaczęte lekcje oraz postęp</span>
+							<span id="settings-title">Zadania</span></br>
+							<span id="settings-description">Zobacz zaczęte lekcje oraz postęp</span>
 						</li>
                                                 
                                                 <li onclick="">
                                                 <a href='#{"action":"subjectapp"}'>   
-							<span id="title-settings">Aplikacje</span></br>
-							<span id="description-settings">Aplikacje, które pomogą ci w nauce</span>
+							<span id="settings-title">Aplikacje</span></br>
+							<span id="settings-description">Aplikacje, które pomogą ci w nauce</span>
 						</a>
                                                 </li>
                                                 
@@ -92,21 +97,21 @@
 				
 				
 				</div>
-				<div id="user-point"><h3>Twoje punkty: 123</h3></div>				
-             </div>
+				
+				<div id="user-score">
+					<span id="user-score-text">Twoje punkty: <span id="user-score-value">123</span></span>			
+				</div>			
+             
 		</div>
 		
-		
-				<div id="footer">
-				<div id="text-footer"> Strona zaprojektowana przez KarolinÄ™ KudliĹ„skÄ…, Mateusza Czyszewskiego, MikoĹ‚aja Gromelskiego i PawĹ‚a LeĹ›niewskiego Â® Â© </div>
-				
-			</div>
+
 		
 	</div>
 </body>
 
 <script>
-    document.getElementById("user_name").innerHTML=getCookie("login");
+	console.log("halko");
+    document.getElementById("user-name").innerHTML=getCookie("login");
     controller();
 </script>
     

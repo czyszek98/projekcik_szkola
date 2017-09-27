@@ -26,7 +26,7 @@ function themeLoad(){
 };
 function themeContent(){
 	
-	 var content=document.getElementById("left-content");
+	 var content=document.getElementById("content");
      content.innerHTML="";
 	 var msg={"login":"asd"};
 	 
@@ -58,7 +58,7 @@ function themeContent(){
 };
 function addThemeFunction()
 {
-	var content=document.getElementById("left-content");
+	var content=document.getElementById("content");
 	content.innerHTML="";
 	
 	var divThemeInput=addNewElement("div", "tile" , content  ,  ""); 
@@ -131,8 +131,8 @@ function setTheme(element){
 			  var FColor=respone.footerColor;
 			  var PColor= respone.profileColor;	
 			
-			  var footer=document.getElementById("footer");
-			  footer.style.backgroundColor=FColor;
+			  //var footer=document.getElementById("footer");
+			  //footer.style.backgroundColor=FColor;
 			  
 			  var bodi=document.body;
 			  bodi.style.backgroundColor=BColor;

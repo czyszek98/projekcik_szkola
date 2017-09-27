@@ -19,7 +19,7 @@ if($result->num_rows == 1)
 }
 else
 {
-    echo '{"code":-1,"error":"Z≥y login lub has≥o."}';
+    echo '{"code":-1,"error":"Z≈Çy login lub has≈Ço."}';
    // header('Location:../sign-in.html');
 }
 

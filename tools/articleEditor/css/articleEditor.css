@@ -1,0 +1,117 @@
+#tools-window{
+  position: absolute;
+  left:100px;
+  top:100px;
+  background-color: lightgray;
+  font-size:17px;
+  border: black 2px solid;
+  border-radius:10px;
+  z-index: 1;
+}
+.tool{
+  position: relative;
+  float: left;
+  margin:auto;
+  border: 1px gray solid;
+  border-radius:5px;
+  width:50px;
+  height: 50px;
+  margin:2px;
+  background-color: #cccccc;
+}
+
+.itemList{
+  position: absolute;
+  left:0px;
+  top:62px;
+  background-color: lightgray;
+  width:168px;
+  border: black 2px solid;
+  border-radius:10px;
+
+  z-index: 1;
+
+}
+.itemListTriangle{
+  position: absolute;
+  left:18px;
+  top:-6px;
+  background-color: lightgray;
+  width:10px;
+  height: 10px;
+  border: black solid;
+  border-width: 1px 0 0 1px;
+  z-index: -1;
+  transform: rotate(45deg);
+}
+.range{
+  position: absolute;
+  left:0px;
+  top:0px;
+  height: 100px;
+  width: 100px;
+  display: none;
+  opacity: 1;
+  z-index: -1;
+  opacity:0;
+
+}
+.tool:hover>.range{
+
+  display: block;
+  opacity: 1;
+}
+.item{
+  display: block;
+  margin:2px;
+  border: 1px gray solid;
+  border-radius:5px;
+  width:162px;
+  padding-top:3px;
+  padding-bottom:3px;
+  text-align: center;
+  background-color: #cccccc;
+  transition: 0.5s all;
+}
+.item:hover{
+
+  border-radius:7px;
+
+  background-color: #dddddd;
+}
+
+.css-input {
+     padding: 2px;
+     font-size: 15px;
+     border-width: 1px;
+     border-color: #54EAFF;
+     background-color: #F1F1F1;
+     color: #7E7676;
+     border-style: solid;
+     border-radius: 15px;
+     box-shadow: 3px 3px 8px rgba(66,66,66,.61);
+     text-shadow:  6px 6px 21px px rgba(66,66,66,.78);
+     width:120px;
+     margin:3px;
+}
+ .css-input:focus {
+     outline:none;
+}
+/*//////////////////////////////CSS_LEKCJE/////////////////////////////////*/
+.heder{
+  font-size:50px;
+  color:black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.heder::first-letter{
+  font-size:55px;
+  font-weight: bold;
+  color:green;
+
+}
+
+.text{
+  font-size: 19px;
+}

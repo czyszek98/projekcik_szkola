@@ -6,7 +6,7 @@ function signUp(submit)
     var inputs=submit.parentElement.getElementsByTagName("input");
     for(var i=0;i<inputs.length;i++)
     {
-        if(inputs[i].checkValidity() == false) check=false;  
+        if(inputs[i].checkValidity() == false) check=false;
     }
     if(check)
     {
@@ -18,14 +18,14 @@ function signUp(submit)
         "account_type":submit.parentElement.elements["account_type"].value
         };
         alert(JSON.stringify(msg));
-        
-         
+
+
         sendPostRequest(msg,"php/register.php",function(response)
         {
            if(response.code == 200) window.location.href=response.url;
            else alert(response.error);
         });
-          
+
     }
 };
 
@@ -35,7 +35,7 @@ function signIn(submit)
     var inputs=submit.parentElement.getElementsByTagName("input");
     for(var i=0;i<inputs.length;i++)
     {
-        if(inputs[i].checkValidity() == false) check=false;  
+        if(inputs[i].checkValidity() == false) check=false;
     }
     if(check)
     {
@@ -46,7 +46,7 @@ function signIn(submit)
         "login":login,
         "password":password
         };
-      
+
          sendPostRequest(msg,"php/login.php",function(response) {
            if(response.code == 200)
            {
@@ -56,11 +56,11 @@ function signIn(submit)
                window.location.href=response.url;
            }
            else alert(response.error);
-        
-        });
-        
 
-        
+        });
+
+
+
     }
 };
 
@@ -79,9 +79,9 @@ function edit(text,type,url="",name="")
     if(newText !== "" && newText !== null)
     if(validText(newText,type))
     {
-        if(confirm("Czy napewno chcesz zmieniæ '"+ oldText +"' na '"+ newText +"'?"))
+        if(confirm("Czy napewno chcesz zmieniï¿½ '"+ oldText +"' na '"+ newText +"'?"))
         {
-            
+
            if(url!=="" && name!=="")
            {
                 var msg= {"login":getCookie("login"),"password":getCookie("password"),"element":name,"text":newText};
@@ -90,21 +90,21 @@ function edit(text,type,url="",name="")
                     {
                         text.innerHTML=newText;
                         if(type==="login" || type==="password") setCookie(type,newText,1);
-                        document.getElementById("user_name").innerHTML=getCookie("login");
+                        document.getElementById("user-name").innerHTML=getCookie("login");
                     }
-                    else 
+                    else
                     {
-                        alert("Podczas zamiany wyst¹pi³ problem.");
+                        alert("Podczas zamiany wystï¿½piï¿½ problem.");
                         alert(response.error);
                     }
                 });
            }
            else text.innerHTML=newText;
         }
-  
+
     }
-    else alert("Nie mo¿na dokonaæ zmiany - podana wartoœæ jest niepoprawna");
-       
+    else alert("Nie moï¿½na dokonaï¿½ zmiany - podana wartoï¿½ï¿½ jest niepoprawna");
+
 };
 
 function loadProfile()
@@ -114,49 +114,49 @@ function loadProfile()
       "password":getCookie("password")
   };
 
-  
+
            sendPostRequest(msg,"php/profile_data.php",function(response) {
            if(response.code === 200)
            {
 
-              var content=document.getElementById("left-content");
+              var content=document.getElementById("content");
               content.innerHTML="";
-              
+
              addNewElement("span","text",content,"Imie:");
              addNewElement("span","text",content,response.name,"click",function(){edit(this,"word","php/edit.php","name");});
              addNewElement("br","",content,"");
-             
+
              addNewElement("span","text",content,"Nazwisko:");
              addNewElement("span","text",content,response.lastName,"click",function(){edit(this,"word","php/edit.php","laset_name");});
              addNewElement("br","",content,"");
-             
+
              addNewElement("span","text",content,"Klasa:");
              addNewElement("span","text",content,response.class);
              addNewElement("br","",content,"");
-             
+
              addNewElement("span","text",content,"Login:");
              addNewElement("span","text",content,getCookie("login"),"click",function(){edit(this,"login","php/edit.php","login");});
              addNewElement("br","",content,"");
-             
+
              addNewElement("span","text",content,"email:");
              addNewElement("span","text",content,response.email,"click",function(){edit(this,"email","php/edit.php","email");});
              addNewElement("br","",content,"");
-        
+
            }
            else alert(response.error);
-        
+
         });
-  
+
 };
 function loadUrl(url)
 {
-              
-              var content=document.getElementById("left-content");
+
+              var content=document.getElementById("content");
               content.innerHTML="";
               var frameset=addNewElement("frameset","",content,"");
               var frame=addNewElement("frame","",frameset,"");
               frame.src=url;
-                
+
 };
 
 
@@ -168,21 +168,21 @@ function loadSubjectApps(subjectId)
       "subjectId":parseInt(subjectId)
   };
 
-  
+
            sendPostRequest(msg,"php/subjectApps.php",function(response) {
            if(response.code[0] === 200)
            {
-              var content=document.getElementById("left-content");
+              var content=document.getElementById("content");
               content.innerHTML="";
-              
+
               for(var i=0;i<response.id.length;i++)
               {
                   var hash={"action":"apk","apkUrl":response.url[i]};
                   var link = addNewElement("a","",content,"");
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
-                  
-                  
+
+
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -192,17 +192,17 @@ function loadSubjectApps(subjectId)
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-                  
+
 
               }
 
-             
+
            }
            else alert(response.error);
-        
+
         });
-        
-        
+
+
 };
 function loadApps()
 {
@@ -211,21 +211,21 @@ function loadApps()
       "password":getCookie("password")
   };
 
-  
+
            sendPostRequest(msg,"php/apps_data.php",function(response) {
            if(response.code[0] === 200)
            {
-              var content=document.getElementById("left-content");
+              var content=document.getElementById("content");
               content.innerHTML="";
-              
+
               for(var i=0;i<response.id.length;i++)
               {
                   var hash={"action":"apps","subjectId":response.id[i]};
                   var link = addNewElement("a","",content,"");
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
-                  
-                  
+
+
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -235,40 +235,46 @@ function loadApps()
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-                  
+
 
               }
 
-             
+
            }
            else alert(response.error);
-        
+
         });
-  
+
 };
 
 function loadAllLessons()
 {
+
+
   var msg={
       "login":getCookie("login"),
       "password":getCookie("password")
   };
 
-  
+
+        content.innerHTML="";
+
+
+
            sendPostRequest(msg,"php/lessons_data.php",function(response) {
            if(response.code[0] === 200)
            {
-              var content=document.getElementById("left-content");
-              content.innerHTML="";
-              
+             var content=document.getElementById("content");
+
+
               for(var i=0;i<response.id.length;i++)
               {
                   var hash={"action":"subjectlessons","subjectId":response.id[i]};
                   var link = addNewElement("a","",content,"");
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
-                  
-                  
+
+
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -278,16 +284,35 @@ function loadAllLessons()
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-                  
+
 
               }
 
-             
+
            }
            else alert(response.error);
-        
+
+
         });
-  
+
+
+        sendPostRequest(msg,"php/getUser.php",function(response) {
+              if(response.code === 200)
+              {
+                 if(response.account_type == 'T' || response.account_type == 'A')
+                 {
+                     console.log("funkcasdyja1");
+                     var hash={"action":"articleEditor"};
+                     var link = addNewElement("a","",content,"");
+                     link.setAttribute("href","#"+JSON.stringify(hash));
+                     var subject = addNewElement("div","tile",link,"<p>+Dodaj lekcje+</p>");
+                }
+              }
+              else alert("wystÄ…piÅ‚ problem");
+
+     });
+
+
 };
 
 function subjectLessons(subjectId)
@@ -298,21 +323,21 @@ function subjectLessons(subjectId)
       "subjectId":parseInt(subjectId)
   };
 
-  
+
            sendPostRequest(msg,"php/subjectLessons.php",function(response) {
            if(response.code[0] === 200)
            {
-              var content=document.getElementById("left-content");
+              var content=document.getElementById("content");
               content.innerHTML="";
-              
+
               for(var i=0;i<response.id.length;i++)
               {
                   var hash={"action":"lesson","lessonId":response.id[i]};
                   var link = addNewElement("a","",content,"");
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
-                  
-                  
+
+
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -322,17 +347,17 @@ function subjectLessons(subjectId)
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-                  
+
 
               }
 
-             
+
            }
            else alert(response.error);
-        
+
         });
-        
-        
+
+
 };
 function loadLesson(lessonId)
 {
@@ -342,27 +367,82 @@ function loadLesson(lessonId)
       "lessonId":parseInt(lessonId)
   };
 
-  
+
            sendPostRequest(msg,"php/lesson.php",function(response) {
            if(response.code[0] === 200)
            {
-              var content=document.getElementById("left-content");
+              var content=document.getElementById("content");
               content.innerHTML="";
-              
+
               for(var i=0;i<response.content.tagName.length;i++)
               {
-                  
+
                   addNewElement(response.content.tagName[i],"",content,response.content.innerHtml[i],"click",function(){edit(this,"word");});
 
               }
 
-             
+
            }
            else alert(response.error);
-        
+
         });
 
 };
+
+
+
+var menu_bool=0;
+function menu()
+{
+
+
+	if(menu_bool)
+	{
+
+
+
+			$("#user-profile").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
+			$("#settings").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
+			$("#user-score").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
+
+
+			window.setTimeout(function(){$("#menu").css("min-width","30px").css("width","30px");$("#menu-button").css("transform","rotate(360deg)");},500);
+
+			menu_bool=0;
+
+	}
+	else
+	{
+
+		menu_bool=1;
+
+			$("#menu").css("width","30%");
+
+						window.setTimeout(function(){$("#menu").css("min-width","250px");},500);
+
+			$("#menu-button").css("transform","rotate(-180deg)");
+
+			window.setTimeout(function(){
+
+				$("#user-profile").animate({opacity: 1 }, 500,'linear').show();
+				$("#settings").animate({opacity: 1 }, 500,'linear').show();
+				$("#user-score").animate({opacity: 1 }, 500,'linear').show();
+
+
+
+				},1000);
+	}
+}
+
+function articleEditor()
+{
+    $(document).ready(function(){
+       $("#content").load("tools/articleEditor/editor.html");
+
+
+    });
+}
+
 
 function controller()
 {   console.log("halo, policja");
@@ -377,42 +457,65 @@ function controller()
             switch(hash.action)
             {
               case "subjectapp":
-                loadApps();   
+                loadApps();
               break;
-              
+
               case "alllessons":
-                loadAllLessons();   
+                loadAllLessons();
               break;
-              
+
               case "subjectlessons":
-                subjectLessons(hash.subjectId);   
+                subjectLessons(hash.subjectId);
               break;
-              
+
               case "lesson":
-                loadLesson(hash.lessonId);   
+                loadLesson(hash.lessonId);
               break;
 
               case "apps":
-                loadSubjectApps(hash.subjectId);   
+                loadSubjectApps(hash.subjectId);
               break;
 
               case "apk":
-                loadUrl(hash.apkUrl);   
+                loadUrl(hash.apkUrl);
               break;
 
               case "profile":
-                loadProfile();   
+                loadProfile();
               break;
 
               case "theme":
-                themeContent(); 
+                themeContent();
               break;
-              
+
+              case "articleEditor":
+
+              var msg={
+              "login":getCookie("login"),
+              "password":getCookie("password")
+              };
+
+              sendPostRequest(msg,"php/getUser.php",function(response) {
+              if(response.code === 200)
+              {
+                 var content=document.getElementById("content");
+
+
+                 if(response.account_type == 'T' || response.account_type == 'A')
+                 {
+                   articleEditor();
+                 }
+              else alert("Brak uprawnieÅ„!");
+            }
+           });
+
+              break;
+
               default:
-                      var content=document.getElementById("left-content");
+                      var content=document.getElementById("content");
                       content.innerHTML="ERROR 404 NIE ZNALEZIONO STRONY";
               break;
-              
+
             }
         }
     };

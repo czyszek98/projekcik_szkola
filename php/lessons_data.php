@@ -31,7 +31,7 @@ if($result->num_rows > 0)
 }
 else
 {
-    echo '{"code":[-1],"error":"Brak przedmiotów."}';
+    echo '{"code":[-1],"error":"Brak przedmiotï¿½w."}';
    // header('Location:../sign-in.html');
 }
 

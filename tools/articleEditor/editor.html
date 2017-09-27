@@ -1,0 +1,47 @@
+
+<div id="tools-window">
+  <link href="tools/articleEditor/css/range.css" rel="stylesheet" />
+  <link href="tools/articleEditor/css/articleEditor.css" rel="stylesheet" />
+
+    <div class="tool" style="background-image:url('tools/articleEditor/img/add.png');background-size:50px;">
+      <div class="range">
+        <div class="itemList">
+
+          <div class="item" onclick="addNewElement('p','heder',document.getElementById('article'),'Nagłówek','click',function(){edit(this,'word');})">Nagłówek</div>
+          <div class="item" onclick="addNewElement('p','text',document.getElementById('article'),'Lorem ipsum.....','click',function(){edit(this,'word');})">Tekst</div>
+          <div class="item">Zdjęcie</div>
+          <div class="item">Tabela</div>
+          <div class="item">Wzór</div>
+          <div class="item">Tablica znaków</div>
+          <div class="item">Cytat</div>
+          <div class="item">Przykladowy kod</div>
+          <div class="item">Lista</div>
+          <div class="item">HTML</div>
+
+          <div class="itemListTriangle"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool" style="background-image:url('tools/articleEditor/img/open.png');background-size:50px;"></div>
+
+    <div class="tool" style="background-image:url('tools/articleEditor/img/omega.png');background-size:50px;background-repeat:no-repeat;"></div>
+    <div class="tool" style="background-image:url('tools/articleEditor/img/save.png');background-size:50px;">
+
+          <div class="range">
+            <div class="itemList">
+                <input type="text" id="lessonName" placeholder="Nazwa lekcji" class="css-input" />
+
+                <div class="item">
+                  Zapisz i publikuj <input type="checkbox" id="share">
+                </div>
+            </div>
+          </div>
+    </div>
+    <div id="move" class="tool"  style="background-image:url('tools/articleEditor/img/move.png');background-size:50px;"></div>
+
+<script src="tools/articleEditor/js/jquery-ui.js"></script>
+<script src="tools/articleEditor/js/drag.js"></script>
+</div>
+<article id="article">
+
+</article>
