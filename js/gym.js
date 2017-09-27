@@ -1,6 +1,6 @@
 function gymContent()
 {
-	var hand=document.getElementById("left-content");
+	var hand=document.getElementById("content");
 	hand.innerHTML="";	
 	  var msg={
       "login":getCookie("login"),
@@ -11,7 +11,7 @@ function gymContent()
 	 {
 	
 		
-		var hand=document.getElementById("left-content");
+		var hand=document.getElementById("content");
 	var el=addNewElement("div", "" , hand ,  "");	
 	
 	
