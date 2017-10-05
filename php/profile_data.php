@@ -15,10 +15,13 @@ $result = $mysql->query($query);
 if($result->num_rows == 1)
 {
     $user = $result->fetch_assoc();
-    $user_id=$user["id"];
+    $userId=$user["id"];
     
-    $query="select * from students where user_id='".$user_id."'";
-    
+    if($user["accountType"] == 'S') $query="select * from students where userId='".$userId."'";
+    else if($user["accountType"] == 'T') $query="select * from teachers where userId='".$userId."'";
+	else if($user["accountType"] == 'A') $query="select * from admins where userId='".$userId."'";
+	else if($user["accountType"] == 'P') $query="select * from parents where userId='".$userId."'";
+	
     $result2 = $mysql->query($query);
     $student=$result2->fetch_assoc();
     
@@ -31,24 +34,24 @@ if($result->num_rows == 1)
         $student['name']="bark";
     }
     
-    if(!isset($student["laset_name"]))
+    if(!isset($student["lastName"]))
     {
-        $student["laset_name"]="bark";
+        $student["lastName"]="bark";
     }
-    elseif($student['laset_name']=="")
+    elseif($student['lastName']=="")
     {
-        $student['laset_name']="bark";
+        $student['lastName']="bark";
     }
-    if(!isset($student['class'])) 
+    if(!isset($student['classId'])) 
     {
-        $student['class']="bark";
+        $student['classId']="bark";
     }
-        elseif($student['class']=="")
+        elseif($student['classId']=="")
     {
-        $student['class']="bark";
+        $student['classId']="bark";
     }
     
-    echo '{"code":200,"name":"'.$student['name'].'","lastName":"'.$student['laset_name'].'","email":"'.$user['email'].'","class":"'.$student['class'].'"}';
+    echo '{"code":200,"name":"'.$student['name'].'","lastName":"'.$student['lastName'].'","email":"'.$user['email'].'","classId":"'.$student['classId'].'"}';
 //header('Location:user-log-in.php');
 }
 else

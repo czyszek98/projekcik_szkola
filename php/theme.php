@@ -11,15 +11,15 @@ $queryLogin="select * from users where login='".$obj->login."' and password='".$
 
 	$result = $mysql->query($queryLogin);
 	$results= $result->fetch_assoc();
-	$user_id=$results['id'];
+	$userId=$results['id'];
 	
-	$id_theme=$obj->theme;
+	$idTheme=$obj->theme;
 
  
-    $mysql->query("UPDATE users SET idTheme='"."$id_theme"."' WHERE id='"."$user_id"."' ");
+    $mysql->query("UPDATE users SET idTheme='"."$idTheme"."' WHERE id='"."$userId"."' ");
 	
 
-$queryTheme="SELECT * FROM `theme` WHERE id='"."$id_theme"."' ";
+$queryTheme="SELECT * FROM `theme` WHERE id='"."$idTheme"."' ";
 	$result = $mysql->query($queryTheme);
 
 	$themeContent= $result->fetch_assoc();

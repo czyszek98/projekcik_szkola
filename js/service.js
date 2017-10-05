@@ -15,7 +15,7 @@ function signUp(submit)
         "login":submit.parentElement.elements["login"].value,
         "password":submit.parentElement.elements["password"].value,
         "email":submit.parentElement.elements["email"].value,
-        "account_type":submit.parentElement.elements["account_type"].value
+        "accountType":submit.parentElement.elements["accountType"].value
         };
         alert(JSON.stringify(msg));
 
@@ -127,11 +127,14 @@ function loadProfile()
              addNewElement("br","",content,"");
 
              addNewElement("span","text",content,"Nazwisko:");
-             addNewElement("span","text",content,response.lastName,"click",function(){edit(this,"word","php/edit.php","laset_name");});
+             addNewElement("span","text",content,response.lastName,"click",function(){edit(this,"word","php/edit.php","lastName");});
              addNewElement("br","",content,"");
 
              addNewElement("span","text",content,"Klasa:");
-             addNewElement("span","text",content,response.class);
+			 if(response.class != null)
+				 addNewElement("span","text",content,response.class);
+			 else 
+				 addNewElement("span","text",content,"Nie przydzielono");
              addNewElement("br","",content,"");
 
              addNewElement("span","text",content,"Login:");
@@ -299,7 +302,7 @@ function loadAllLessons()
         sendPostRequest(msg,"php/getUser.php",function(response) {
               if(response.code === 200)
               {
-                 if(response.account_type == 'T' || response.account_type == 'A')
+                 if(response.accountType == 'T' || response.accountType == 'A')
                  {
                      console.log("funkcasdyja1");
                      var hash={"action":"articleEditor"};
@@ -501,7 +504,7 @@ function controller()
                  var content=document.getElementById("content");
 
 
-                 if(response.account_type == 'T' || response.account_type == 'A')
+                 if(response.accountType == 'T' || response.accountType == 'A')
                  {
                    articleEditor();
                  }

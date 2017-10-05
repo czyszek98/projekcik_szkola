@@ -15,7 +15,7 @@ $response->background= (array)[];
 
 
 
-$query="SELECT * FROM apps WHERE subject_id=".$obj->subjectId.";";
+$query="SELECT * FROM apps WHERE subjectId=".$obj->subjectId.";";
 
 $result = $mysql->query($query);
 $respone->code[]=200;
@@ -23,7 +23,7 @@ if($result->num_rows > 0)
 {
      while($subject=$result->fetch_assoc())
     {
-        $respone->id[]=$subject["subject_id"];
+        $respone->id[]=$subject["subjectId"];
         $respone->name[]=$subject["name"];
         $respone->url[]=$subject["url"];
         $respone->background[]=$subject["background"];

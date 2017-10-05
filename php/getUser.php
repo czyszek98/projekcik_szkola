@@ -15,8 +15,8 @@ $result = $mysql->query($query);
 if($result->num_rows == 1)
 {
   $value = $result->fetch_assoc();
-  $account_type=$value["account_type"];
-    echo '{"code":200,"account_type":"'.$account_type.'"}';
+  $accountType=$value["accountType"];
+    echo '{"code":200,"accountType":"'.$accountType.'"}';
 //header('Location:user-log-in.php');
 }
 else

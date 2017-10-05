@@ -14,7 +14,7 @@ $response->background= (array)[];
 
 
 
-$query="SELECT DISTINCT subjects.* FROM apps,subjects WHERE subjects.id=apps.subject_id";
+$query="SELECT DISTINCT subjects.* FROM apps,subjects WHERE subjects.id=apps.subjectId";
 
 $result = $mysql->query($query);
 $respone->code[]=200;
