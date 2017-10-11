@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <?php
-	$mysqli = new mysqli('localhost', 'root', "", 'apk');
+	$mysqli = new mysqli('localhost', 'root', "", 'english_learning');
 	$result = $mysqli->query("SELECT * FROM `words` ORDER BY RAND() LIMIT 10");
 	$row = $result->fetch_assoc();
 	$ang= $row["ang"];
@@ -15,8 +15,10 @@
 <body>
 <div id="contener">
 <form>
-	<input type="button" value="Dodaj słówka" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" />
-</form>
+	
+	<a href=" http://localhost/projekcik_szkola/apk/english/words/add_words.php"><input type="button" value="Dodaj słówka" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" /></a>
+	<a href=" http://localhost/projekcik_szkola/apk/english/words/load_words.php"><input type="button" value="Edycja słówek" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" /></a>
+	</form>
 </div>
 <div id="content" >
 
@@ -49,8 +51,6 @@
 			alert("ŹLE!");
 			odp.style.backgroundColor="#ff3333";
 		}
-			
-		
 	}
 	
 </script>
