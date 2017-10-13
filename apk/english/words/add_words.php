@@ -10,7 +10,7 @@
 <div id="contener">
 <form>
 	<a href=" http://localhost/projekcik_szkola/apk/english/words/ang_learn.php"><input type="button" value="Powrót" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" /></a>
-	<p  style="font-size:38px;text-align:center;padding:20px;margin-bottom:-8px;">DODAJ SŁÓWKO</p>
+	<p  style="font-size:38px;text-align:center;padding:20px;margin-bottom:-80px;color:white;">DODAJ SŁÓWKO</p>
 </form>
 </div>
 <div id="content" >

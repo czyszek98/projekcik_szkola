@@ -18,6 +18,7 @@
 	
 	<a href=" http://localhost/projekcik_szkola/apk/english/words/add_words.php"><input type="button" value="Dodaj słówka" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" /></a>
 	<a href=" http://localhost/projekcik_szkola/apk/english/words/load_words.php"><input type="button" value="Edycja słówek" onclick="dodaj()" style="height:50px;width:140px;font-size:20px;" /></a>
+	<p  style="font-size:38px;text-align:center;padding:20px;margin-bottom:-80px;color:white;">NAUKA</p>
 	</form>
 </div>
 <div id="content" >
