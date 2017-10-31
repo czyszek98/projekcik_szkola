@@ -1,5 +1,5 @@
 
-<div id="tools-window" >
+<div id="tools-window" onload="loadSubject()">
   <link href="tools/articleEditor/css/range.css" rel="stylesheet" />
   <link href="tools/articleEditor/css/articleEditor.css" rel="stylesheet" />
 
@@ -29,26 +29,17 @@
 
           <div class="range">
             <div class="itemList">
-
-              <form>
-               <fieldset>
-                <legend>Przedmiot i nazwa lekcji</legend>
-                <select id="subjectList">
-        					<option value="volvo">Volvo</option>
-        				</select>
-                <input type="text" id="lessonName" placeholder="Nazwa lekcji" class="css-input" /> <br>
-               </fieldset>
-              </form>
-      
-        <div class="item">
-				      Zapisz i publikuj
-				</div>
-
+                
+				<input type="text" id="lessonName" placeholder="Nazwa lekcji" class="css-input" />
+					
+				<select id="subjectList">
+					<option value="volvo">Volvo</option>
+				</select>
+				
 				<div class="item">
-				  Tylko zapisz
+				  Zapisz i publikuj 
 				</div>
-
-        <div class="itemListTriangle"></div>
+				
             </div>
           </div>
     </div>
@@ -58,10 +49,11 @@
 <script src="tools/articleEditor/js/drag.js"></script>
 <script>
 
-
+	function loadSubject()
+	{
 	console.log("no witam cie mareczku");
 	var select = document.getElementById("subjectList");
-
+	
 	  var msg={
       "login":getCookie("login"),
       "password":getCookie("password")
@@ -70,17 +62,18 @@
            sendPostRequest(msg,"php/subjects.php",function(response) {
            if(response.code[0] === 200)
            {
-
+            
 			for(var i=0;i<response.id.length;i++)
               {
-
+                  
                   var option = addNewElement("option","",select,response.name[i]);
                   option.setAttribute("value",response.id[i]);
               }
            }
            else alert(response.error);
         });
-
+	}
+	
 </script>
 </div>
 <article id="article">

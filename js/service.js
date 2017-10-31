@@ -133,7 +133,7 @@ function loadProfile()
              addNewElement("span","text",content,"Klasa:");
 			 if(response.class != null)
 				 addNewElement("span","text",content,response.class);
-			 else 
+			 else
 				 addNewElement("span","text",content,"Nie przydzielono");
              addNewElement("br","",content,"");
 
@@ -369,6 +369,8 @@ function loadLesson(lessonId)
       "password":getCookie("password"),
       "lessonId":parseInt(lessonId)
   };
+  
+  
 
 
            sendPostRequest(msg,"php/lesson.php",function(response) {
@@ -381,6 +383,7 @@ function loadLesson(lessonId)
               {
 
                   addNewElement(response.content.tagName[i],"",content,response.content.innerHtml[i],"click",function(){edit(this,"word");});
+				  
 
               }
 
@@ -442,13 +445,82 @@ function articleEditor()
     $(document).ready(function(){
        $("#content").load("tools/articleEditor/editor.html");
 
-
     });
 }
 
+function loadMenuitems(id)
+{
+  var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password"),
+      "id":id
+  };
+
+
+           sendPostRequest(msg,"php/loadMenuitems.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var menu=document.getElementById("settings").getElementsByTagName("ul")[0];
+              menu.innerHTML="";
+
+              for(var i=0;i<response.href.length;i++)
+              {
+				
+					let li = addNewElement("li","",menu,"");
+					let a = addNewElement("a","",li,"");
+						a.href=decodeURIComponent(response.href[i]);
+					
+					addNewElement("span","settings-title",a,response.name[i]);
+					addNewElement("br","",a,"");
+					addNewElement("span","settings-description",a,response.description[i]);
+				
+              }
+
+
+           }
+           else alert(response.error);
+
+        });
+}
+function loadOverlaps()
+{
+	  var msg={
+      "login":getCookie("login"),
+      "password":getCookie("password")
+  };
+
+
+           sendPostRequest(msg,"php/loadOverlaps.php",function(response) {
+           if(response.code[0] === 200)
+           {
+              var overlaps=document.getElementById("overlaps");
+              overlaps.innerHTML="";
+
+              for(var i=0;i<response.id.length;i++)
+              {
+				let overlap = addNewElement("a","overlap",overlaps,response.name[i]);
+				overlap.href='#{"action":"menu","id":"'+ response.id[i] +'"}';
+              }
+
+
+           }
+           else alert(response.error);
+
+        });
+}
 
 function controller()
-{   console.log("halo, policja");
+{
+
+	let menu = document.getElementById("settings").getElementsByTagName("ul")[0];
+
+	menu = addNewElement("li","",menu,"");
+	let a = document.createElement("a");
+	a.href='#{"action":"adminPanel"}';
+	menu.appendChild(a);
+	menu = addNewElement("span","settings-title",a,"Panel administratora");
+
+	console.log("halo, policja");
     window.onload = window.onhashchange =
     function(){
         var str =window.location.hash;
@@ -512,6 +584,10 @@ function controller()
             }
            });
 
+              break;
+
+              case "menu":
+                  loadMenuitems(hash.id);
               break;
 
               default:

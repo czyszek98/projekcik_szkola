@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<link href="css/style.css" rel="stylesheet" />
 
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">     
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/dimensions.js"></script>
         <script src="js/script.js"></script>
@@ -17,24 +17,25 @@
 </head>
 <body onload="themeLoad()">
 	<div id="container">
-	
-	
-<div id="logo"> 
 
-					<div id="cart">
-                                                <div id="cart-two">Nauka</div>
-						<a href="http://localhost/projekcik_szkola/profile.html"><div id="cart-one">Profil</div></a>
-						
+
+<div id="logo">
+
+					<div id="overlaps">
+
+							<a class="overlap" href='#{"action":"asd","content":"dobre"}'>Nauka</a>
+							<a class="overlap" href='#{"action":"asd","content":"lepsze"}'>strona</a>
+
 					</div>
-					
-<a href="index.html">  <img height=100px" src="img/logo_small.png" /></a>
 
-</div> 
+<a href="index.html">  <img height="100px" src="img/logo_small.png"/></a>
+
+</div>
 
 
 
-	
-					
+
+
 
 
 			<div id="content">
@@ -53,59 +54,59 @@
 					<div class="tile"><p>mdvn</p></div>
 					<div class="tile"><p>mdvn</p></div>
 					<div class="tile"><p>mdvn</p></div>
-				
+
 				</div>
 			</div>
 
 		</div>
-		
-		<div id="menu">	
-			<img onclick="menu()" id="menu-button" src="img/menu_arrow.png" />	
+
+		<div id="menu">
+			<img onclick="menu()" id="menu-button" src="img/menu_arrow.png" />
 				<div id="user-profile">
 					<div id="user-profile-avatar"><img style="box-shadow: 0px 0px 16px 6px rgba(122,122,122,1);" src="http://mylokalesuche.ch/bw/wp-content/uploads/2016/10/avatar-1577909_960_720.png" width="100px" height="auto"/></div>
-					
+
 					<div id="user-profile-login">
-						 
-						 <span id="user-profile-greeting">Witaj <span id="user-name">Andre</span></span> </br>							
-						<span id="user-profile-logout" onclick="logout()">Wyloguj się</span> 
-						
-					</div>					
+
+						 <span id="user-profile-greeting">Witaj <span id="user-name">Andre</span></span> </br>
+						<span id="user-profile-logout" onclick="logout()">Wyloguj się</span>
+
+					</div>
 				</div>
-				
+
 				<div id="settings" onclick="menu()">
 					<ul>
 						<li >
-                                                <a href='#{"action":"alllessons"}'> 
-							<span id="settings-title">Lekcje</span></br>
-							<span id="settings-description">Zobacz lub zmień swoje dane</span>
+                                                <a href='#{"action":"alllessons"}'>
+							<span class="settings-title">Lekcje</span></br>
+							<span class="settings-description">Zobacz lub zmień swoje dane</span>
                                                 </a>
 						</li>
 						<li>
-							<span id="settings-title">Zadania</span></br>
-							<span id="settings-description">Zobacz zaczęte lekcje oraz postęp</span>
+							<span class="settings-title">Zadania</span></br>
+							<span class="settings-description">Zobacz zaczęte lekcje oraz postęp</span>
 						</li>
-                                                
+
                                                 <li onclick="">
-                                                <a href='#{"action":"subjectapp"}'>   
-							<span id="settings-title">Aplikacje</span></br>
-							<span id="settings-description">Aplikacje, które pomogą ci w nauce</span>
+                                                <a href='#{"action":"subjectapp"}'>
+							<span class="settings-title">Aplikacje</span></br>
+							<span class="settings-description">Aplikacje, które pomogą ci w nauce</span>
 						</a>
                                                 </li>
-                                                
-					</ul>
-				
-				
-				
-				</div>
-				
-				<div id="user-score">
-					<span id="user-score-text">Twoje punkty: <span id="user-score-value">123</span></span>			
-				</div>			
-             
-		</div>
-		
 
-		
+					</ul>
+
+
+
+				</div>
+
+				<div id="user-score">
+					<span id="user-score-text">Twoje punkty: <span id="user-score-value">123</span></span>
+				</div>
+
+		</div>
+
+
+
 	</div>
 </body>
 
@@ -113,6 +114,7 @@
 	console.log("halko");
     document.getElementById("user-name").innerHTML=getCookie("login");
     controller();
+	loadOverlaps();
 </script>
-    
+
 </html>
