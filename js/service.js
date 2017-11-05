@@ -17,13 +17,13 @@ function signUp(submit)
         "email":submit.parentElement.elements["email"].value,
         "accountType":submit.parentElement.elements["accountType"].value
         };
-        alert(JSON.stringify(msg));
+        //alert(JSON.stringify(msg));
 
 
         sendPostRequest(msg,"php/register.php",function(response)
         {
            if(response.code == 200) window.location.href=response.url;
-           else alert(response.error);
+           else message(response.error,"error");
         });
 
     }
@@ -55,7 +55,7 @@ function signIn(submit)
 
                window.location.href=response.url;
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -94,8 +94,9 @@ function edit(text,type,url="",name="")
                     }
                     else
                     {
-                        alert("Podczas zamiany wyst�pi� problem.");
-                        alert(response.error);
+                        message("Podczas zamiany wyst�pi� problem.","error");
+						message(response.error,"error");
+                        
                     }
                 });
            }
@@ -103,7 +104,7 @@ function edit(text,type,url="",name="")
         }
 
     }
-    else alert("Nie mo�na dokona� zmiany - podana warto�� jest niepoprawna");
+    else message("Nie mo�na dokona� zmiany - podana warto�� jest niepoprawna","error");
 
 };
 
@@ -146,7 +147,7 @@ function loadProfile()
              addNewElement("br","",content,"");
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -201,7 +202,7 @@ function loadSubjectApps(subjectId)
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -244,7 +245,7 @@ function loadApps()
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -293,7 +294,7 @@ function loadAllLessons()
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
 
         });
@@ -311,7 +312,7 @@ function loadAllLessons()
                      var subject = addNewElement("div","tile",link,"<p>+Dodaj lekcje+</p>");
                 }
               }
-              else alert("wystąpił problem");
+              else message("wystąpił problem","error");
 
      });
 
@@ -356,7 +357,7 @@ function subjectLessons(subjectId)
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -389,7 +390,7 @@ function loadLesson(lessonId)
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 
@@ -462,23 +463,24 @@ function loadMenuitems(id)
            {
               var menu=document.getElementById("settings").getElementsByTagName("ul")[0];
               menu.innerHTML="";
-
+				
               for(var i=0;i<response.href.length;i++)
               {
 				
 					let li = addNewElement("li","",menu,"");
 					let a = addNewElement("a","",li,"");
-						a.href=decodeURIComponent(response.href[i]);
+						a.href='#'+decodeURIComponent(response.href[i]);
 					
 					addNewElement("span","settings-title",a,response.name[i]);
 					addNewElement("br","",a,"");
 					addNewElement("span","settings-description",a,response.description[i]);
-				
-              }
 
+              }
+				
+			window.location.hash=decodeURIComponent(response.href[0]);
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 }
@@ -504,7 +506,7 @@ function loadOverlaps()
 
 
            }
-           else alert(response.error);
+           else message(response.error,"error");
 
         });
 }
@@ -580,7 +582,7 @@ function controller()
                  {
                    articleEditor();
                  }
-              else alert("Brak uprawnień!");
+			  else message("Brak uprawnień!","error");
             }
            });
 

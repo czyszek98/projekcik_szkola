@@ -7,6 +7,8 @@
 body{
 padding:0;
 margin:0;
+overflow:hidden;
+
 }
 #menu{
 position:absolute;
@@ -285,5 +287,62 @@ margin-right:150px;
 											  transparent)
 }
 
+
+/***********************************************************************/
+
+
+
+
+/***************************MESSAGES********************************************/
+#message-box
+{
+	position:absolute;
+	width:100%;
+	height:0px;
+	bottom:150px;
+	text-align:center;
+	transition:all 0.2s;
+}
+.error
+{
+	color:red;
+	margin:2px;
+	padding:4px;
+	position:relative;
+	display:block;
+	transition:all 0.2s;
+	background-color:#d8d8d8;
+	box-shadow: inset 0px 0px 3px 3px rgb(216, 29, 29);
+	border:1px black solid;
+	border-radius:10px;
+}
+
+.info
+{
+	color:blue;
+	margin:2px;
+	padding:4px;
+	position:relative;
+	display:block;
+	transition:all 0.2s;
+	background-color:#d8d8d8;
+	box-shadow: inset 0px 0px 3px 3px rgb(29, 29, 216);
+	border:1px black solid;
+	border-radius:10px;
+}
+
+.success
+{
+	color:green;
+	margin:2px;
+	padding:4px;
+	position:relative;
+	display:block;
+	transition:all 0.2s;
+	background-color:#d8d8d8;
+	box-shadow: inset 0px 0px 3px 3px rgb(29, 216,29 );
+	border:1px black solid;
+	border-radius:10px;
+}
 
 /***********************************************************************/

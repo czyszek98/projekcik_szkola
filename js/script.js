@@ -180,23 +180,75 @@ function addNewElement(tagName,className,destination,innerHtml,event="",_functio
               return text;
 };
 
-
-function escapeUnicode(str) {
-    return str.replace(/[^\0-~]/g, function(ch) {
-        return "\\u" + ("0000" + ch.charCodeAt().toString(16)).slice(-4);
-    });
+function fadeOut(element,time,opacity=1,messageBox,errorHeight)
+{
+	element.style.opacity=opacity;
+	if(opacity>0)
+	{
+		window.setTimeout(function(){fadeOut(element,time,opacity-0.05,messageBox,errorHeight);},time);
+	}
+	else
+	{
+		var parent = element.parentElement;
+		parent.removeChild(element);
+		element.style.fontSize="0px";
+		element.style.height="0px";
+		element.style.margin="0px";
+		messageBox.style.height=parseInt(messageBox.style.height)-errorHeight + "px";
+		if(parent.childElementCount == 0) parent.parentElement.removeChild(parent);
+	}
 }
 
+function message(msg,type)
+{
+	var message;
+	var messageBox = document.getElementById("message-box");
+	if(messageBox != null)
+	{
+		message = addNewElement("span",type,messageBox,msg);
+		message.style.opacity=1;
+	}
+	else
+	{
+		messageBox = addNewElement("div","",document.body,"");
+		messageBox.id="message-box";
+		messageBox.style.bottom="0px";
+		
+		message = addNewElement("span",type,messageBox,msg);
+		message.style.opacity=1;
+		
+		messageBox.style.height=message.offsetHeight+"px";
+	}
+	
+	let errorHeight=message.offsetHeight;
 
+	messageBox.style.height=parseInt(messageBox.style.height)+errorHeight + "px";
+	
+	window.setTimeout(function(){
+		
+		for(let i=0;1;i++)
+		{
+			message = document.getElementsByClassName(type)[i];
+			if(message.style.opacity==1)break;
+		}
+		errorHeight=message.offsetHeight+4;
+		
+		fadeOut(message,90,1,messageBox,errorHeight);
+		
+		
+		
+		
+	},1000);
+};
 
 function sendPostRequest(msg,url, callback)
 {
-   alert(JSON.stringify(msg));
+   //alert(JSON.stringify(msg));
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         {
-            console.log(xmlHttp.responseText);
+           // console.log(xmlHttp.responseText);
             callback(JSON.parse(xmlHttp.responseText));
         }
         };
