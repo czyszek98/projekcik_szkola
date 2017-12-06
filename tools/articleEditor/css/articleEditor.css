@@ -97,21 +97,4 @@
  .css-input:focus {
      outline:none;
 }
-/*//////////////////////////////CSS_LEKCJE/////////////////////////////////*/
-.heder{
-  font-size:50px;
-  color:black;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-.heder::first-letter{
-  font-size:55px;
-  font-weight: bold;
-  color:green;
 
-}
-
-.text{
-  font-size: 19px;
-}

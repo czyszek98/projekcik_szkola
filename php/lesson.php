@@ -16,7 +16,7 @@ $respone->code[]=200;
 if($result->num_rows > 0)
 {
         $row=$result->fetch_assoc();
-        echo '{"code":[200],"content":'.$row['content'].'}';
+        echo '{"code":[200],"content":"'.str_replace('"','\\"',$row['content']).'"}';
 }
 else
 {

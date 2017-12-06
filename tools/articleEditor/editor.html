@@ -7,8 +7,8 @@
       <div class="range">
         <div class="itemList">
 
-          <div class="item" onclick="addNewElement('p','heder',document.getElementById('article'),'Nagłówek','click',function(){edit(this,'word');})">Nagłówek</div>
-          <div class="item" onclick="addNewElement('p','text',document.getElementById('article'),'Lorem ipsum.....','click',function(){edit(this,'word');})">Tekst</div>
+          <div class="item" onclick="addNewElement('p','heder',document.getElementById('article'),'Nagłówek','click',function(){edit(this,'sentence');})">Nagłówek</div>
+          <div class="item" onclick="addNewElement('p','text',document.getElementById('article'),'Lorem ipsum.....','click',function(){edit(this,'sentence');})">Tekst</div>
           <div class="item">Zdjęcie</div>
           <div class="item">Tabela</div>
           <div class="item">Wzór</div>
@@ -40,8 +40,9 @@
                </fieldset>
               </form>
       
-        <div class="item">
+        <div class="item" onclick="saveAndSubmit()" >
 				      Zapisz i publikuj
+					  
 				</div>
 
 				<div class="item">
@@ -58,29 +59,28 @@
 <script src="tools/articleEditor/js/drag.js"></script>
 <script>
 
-
-	console.log("no witam cie mareczku");
-	var select = document.getElementById("subjectList");
-
-	  var msg={
+		
+	function saveAndSubmit()
+	{
+			var text=document.getElementById('article').innerHTML;
+			//text = encodeURI(text);
+			text = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+			var title=document.getElementById('lessonName').value;
+			var msg={
       "login":getCookie("login"),
-      "password":getCookie("password")
-  };
-
-           sendPostRequest(msg,"php/subjects.php",function(response) {
+      "password":getCookie("password"),
+	  "content":text,
+	  "title":title
+		};
+			
+           sendPostRequest(msg,"php/tools/articleEditor/addNewArticle.php",function(response) {
            if(response.code[0] === 200)
            {
-
-			for(var i=0;i<response.id.length;i++)
-              {
-
-                  var option = addNewElement("option","",select,response.name[i]);
-                  option.setAttribute("value",response.id[i]);
-              }
+				message("Dodano nowy artykuł","success");
            }
-           else alert(response.error);
+           else message(response.error,"error");
         });
-
+	}
 </script>
 </div>
 <article id="article">

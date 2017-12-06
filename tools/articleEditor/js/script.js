@@ -95,11 +95,22 @@ function validInput(input)
             
             case "word":
 
-            var reg = /^[a-zA-ZąĄę�?ćĆł�?óÓń�?żŻźŹ]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
+            var reg = /^[a-zA-ZąĄęĘćĆłŁóÓńŃżŻźŹ]{3,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value)) 
             {
-                input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
-                valid=false;
+                //input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
+               // valid=false;
+            }
+            else input.setCustomValidity("");
+            
+            break;
+			            case "sentence":
+
+            var reg = /^$/g    ////////Wyrazenie regularne definiujace poprawny adres email
+            if (!reg.test(input.value)) 
+            {
+                //input.setCustomValidity("Dozwolone s٠tylko maԥ i wielkie litery.");
+                //valid=false;
             }
             else input.setCustomValidity("");
             

@@ -98,8 +98,8 @@ function validInput(input)
             var reg = /^[a-zA-ZąĄę�?ćĆł�?óÓń�?żŻźŹ ]{1,}$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value))
             {
-                input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
-                valid=false;
+                //input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
+                //valid=false;
             }
             else input.setCustomValidity("");
 
@@ -108,8 +108,8 @@ function validInput(input)
             var reg = /^$/g    ////////Wyrazenie regularne definiujace poprawny adres email
             if (!reg.test(input.value))
             {
-                input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
-                valid=false;
+               // input.setCustomValidity("Dozwolone s� tylko ma�e i wielkie litery.");
+              //  valid=false;
             }
             else input.setCustomValidity("");
 
@@ -243,12 +243,12 @@ function message(msg,type)
 
 function sendPostRequest(msg,url, callback)
 {
-   //alert(JSON.stringify(msg));
+   console.log("<STRING WYSŁANY DO '"+url+"'>\n"+JSON.stringify(msg));
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         {
-           // console.log(xmlHttp.responseText);
+            console.log("<STRING ODEBRANY Z '"+url+"'>\n"+xmlHttp.responseText);
             callback(JSON.parse(xmlHttp.responseText));
         }
         };

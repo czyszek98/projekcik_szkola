@@ -14,7 +14,7 @@ $result = $mysql->query($query);
 
 if($result->num_rows == 1)
 {
-    echo '{"code":200,"url":"http://localhost/projekcik_szkola/profile.html"}';
+    echo '{"code":200,"url":"http://localhost/projekcik_szkola/school.html"}';
 //header('Location:user-log-in.php');
 }
 else

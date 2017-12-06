@@ -278,7 +278,8 @@ function loadAllLessons()
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
 
-
+				if(response.background[1] != null)
+				{
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -288,7 +289,7 @@ function loadAllLessons()
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-
+				}
 
               }
 
@@ -341,7 +342,8 @@ function subjectLessons(subjectId)
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
 
-
+				if(response.background[i] != null)
+				{
                    if(response.background[i][0] === '#')
                    {
                        subject.style.backgroundColor=response.background[i];
@@ -351,7 +353,7 @@ function subjectLessons(subjectId)
                        subject.style.backgroundImage="url('"+response.background[i]+"')";
                        subject.style.backgroundSize="100% 100%";
                    }
-
+				}
 
               }
 
@@ -380,13 +382,7 @@ function loadLesson(lessonId)
               var content=document.getElementById("content");
               content.innerHTML="";
 
-              for(var i=0;i<response.content.tagName.length;i++)
-              {
-
-                  addNewElement(response.content.tagName[i],"",content,response.content.innerHtml[i],"click",function(){edit(this,"word");});
-				  
-
-              }
+              content.innerHTML=decodeURIComponent(response.content);
 
 
            }
