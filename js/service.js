@@ -395,15 +395,11 @@ function loadLesson(lessonId)
 
 
 var menu_bool=0;
-function menu()
+function menuToggle()
 {
-
-
 	if(menu_bool)
 	{
-
-
-
+			
 			$("#user-profile").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
 			$("#settings").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
 			$("#user-score").animate({opacity: 0 }, 500,'linear',function(){$(this).hide();});
@@ -435,6 +431,14 @@ function menu()
 
 				},1000);
 	}
+}
+function menuHide()
+{
+	if(menu_bool)menuToggle();
+}
+function menuShow()
+{
+	if(!menu_bool)menuToggle();
 }
 
 function articleEditor()
@@ -473,13 +477,22 @@ function loadMenuitems(id)
 
               }
 				
-			window.location.hash=decodeURIComponent(response.href[0]);
-
+			//window.location.hash=decodeURIComponent(response.href[0]);
+			
+			
+			
            }
            else message(response.error,"error");
 
         });
 }
+
+function activeOverlap(overlap)
+{
+	document.getElementById("activeOverlap").id="";
+	overlap.id="activeOverlap";
+}
+
 function loadOverlaps()
 {
 	  var msg={
@@ -496,16 +509,20 @@ function loadOverlaps()
 
               for(var i=0;i<response.id.length;i++)
               {
-				let overlap = addNewElement("a","overlap",overlaps,response.name[i]);
+				let overlap = addNewElement("a","overlap",overlaps,response.name[i],"click",function(){activeOverlap(this);menuShow();});
 				overlap.href='#{"action":"menu","id":"'+ response.id[i] +'"}';
               }
-
+			
+			let overlap = document.getElementsByClassName("overlap")[0];
+			window.location.hash=overlap.href;
+			overlap.id="activeOverlap";
 
            }
            else message(response.error,"error");
 
         });
 }
+
 
 function controller()
 {
