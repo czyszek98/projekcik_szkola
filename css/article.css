@@ -1,4 +1,7 @@
 /*//////////////////////////////CSS_LEKCJE/////////////////////////////////*/
+body{
+	font-family: 'Noto Serif', serif;
+}
 .heder{
   font-size:50px;
   color:black;
