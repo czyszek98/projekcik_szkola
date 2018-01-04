@@ -19,3 +19,26 @@ body{
 .text{
   font-size: 19px;
 }
+
+.image{
+	content:url("../img/add-image.png");
+}
+
+.table{
+
+}
+.table-tr{
+}
+.table-th{
+}
+.table-td{
+}
+
+.patern{
+}
+
+.code{
+}
+
+.list{
+}
