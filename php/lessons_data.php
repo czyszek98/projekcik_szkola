@@ -14,17 +14,17 @@ $response->background= (array)[];
 
 
 
-$query="SELECT DISTINCT subjects.* FROM lessons,subjects WHERE subjects.id=lessons.subjectId";
+$query="SELECT DISTINCT teachers.* FROM lessons,teachers,users WHERE teachers.userId=users.id AND users.id=lessons.userId";
 
 $result = $mysql->query($query);
 $respone->code[]=200;
 if($result->num_rows > 0)
 {
-     while($subject=$result->fetch_assoc())
+     while($teacher=$result->fetch_assoc())
     {
-        $respone->id[]=$subject["id"];
-        $respone->name[]=$subject["name"];
-        $respone->background[]=$subject["background"];
+        $respone->id[]=$teacher["userId"];
+        $respone->name[]=$teacher["name"] . " " . $teacher["lastName"];
+        $respone->background[]=$teacher["background"];
     }   
     
     echo json_encode($respone);

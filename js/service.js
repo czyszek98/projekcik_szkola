@@ -273,7 +273,7 @@ function loadAllLessons()
 
               for(var i=0;i<response.id.length;i++)
               {
-                  var hash={"action":"subjectlessons","subjectId":response.id[i]};
+                  var hash={"action":"subjectlessons","userId":response.id[i]};
                   var link = addNewElement("a","",content,"");
                   link.setAttribute("href","#"+JSON.stringify(hash));
                   var subject = addNewElement("div","tile",link,"<p>"+response.name[i]+"</p>");
@@ -320,12 +320,12 @@ function loadAllLessons()
 
 };
 
-function subjectLessons(subjectId)
+function subjectLessons(userId)
 {
       var msg={
       "login":getCookie("login"),
       "password":getCookie("password"),
-      "subjectId":parseInt(subjectId)
+      "userId":parseInt(userId)
   };
 
 
@@ -538,7 +538,7 @@ function controller()
               break;
 
               case "subjectlessons":
-                subjectLessons(hash.subjectId);
+                subjectLessons(hash.userId);
               break;
 
               case "lesson":
@@ -546,7 +546,7 @@ function controller()
               break;
 
               case "apps":
-                loadSubjectApps(hash.subjectId);
+                loadSubjectApps(hash.userId);
               break;
 
               case "apk":

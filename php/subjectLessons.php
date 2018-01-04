@@ -14,17 +14,17 @@ $response->background= (array)[];
 
 
 
-$query="SELECT lessons.id,lessons.name,lessons.background FROM lessons WHERE lessons.subjectId=". $obj->subjectId;
+$query="SELECT lessons.id,lessons.name,lessons.background FROM lessons WHERE lessons.userId=". $obj->userId;
 
 $result = $mysql->query($query);
 $respone->code[]=200;
 if($result->num_rows > 0)
 {
-     while($subject=$result->fetch_assoc())
+     while($lesson=$result->fetch_assoc())
     {
-        $respone->id[]=$subject["id"];
-        $respone->name[]=$subject["name"];
-        $respone->background[]=$subject["background"];
+        $respone->id[]=$lesson["id"];
+        $respone->name[]=$lesson["name"];
+        $respone->background[]=$lesson["background"];
     }   
     
     echo json_encode($respone);
