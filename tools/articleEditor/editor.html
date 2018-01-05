@@ -1,5 +1,5 @@
 
-<div id="tools-window" >
+<div id="tools-window" class="tools-window" >
   <link href="tools/articleEditor/css/range.css" rel="stylesheet" />
   <link href="tools/articleEditor/css/articleEditor.css" rel="stylesheet" />
 
@@ -9,11 +9,11 @@
 
           <div class="item" onclick="addNewElement('p','heder',document.getElementById('article'),'Nagłówek','click',function(){edit(this,'sentence');})">Nagłówek</div>
           <div class="item" onclick="addNewElement('p','text',document.getElementById('article'),'Lorem ipsum.....','click',function(){edit(this,'sentence');})">Tekst</div>
-          <div class="item" onclick="addNewElement('img','image',document.getElementById('article'),'','click',function(){editImg(this);})">Zdjęcie</div>
+          <div class="item" onclick="addNewElement('img','image',document.getElementById('article'),'','click',function(){editImg(this);}).src='img/add-image.png'">Zdjęcie</div>
           <div class="item" onclick="addNewElement('table','table',document.getElementById('article'),'','click',function(){editTable(this);})">Tabela</div>
           <div class="item" onclick="addNewElement('p','patern',document.getElementById('article'),'Kliknij aby dodać wzór','click',function(){editPatern(this);})">Wzór</div>
           <div class="item" onclick="addNewElement('p','quotation',document.getElementById('article'),'Lorem ipsum.....','click',function(){editQuotation(this);})">Cytat</div>
-          <div class="item" onclick="addNewElement('p','code',document.getElementById('article'),'Kliknij aby dodać kod','click',function(){editCode(this);})">Przykladowy kod</div>
+          <div class="item" onclick="addNewElement('pre','code line-numbers',document.getElementById('article'),'Kliknij aby dodać kod','click',function(){editCode(this);})">Przykladowy kod</div>
           <div class="item" onclick="addNewElement('p','list',document.getElementById('article'),'lista','click',function(){editList(this);})">Lista</div>
           <div class="item">HTML</div>
 
@@ -32,9 +32,7 @@
               <form>
                <fieldset>
                 <legend>Przedmiot i nazwa lekcji</legend>
-                <select id="subjectList">
-        					<option value="volvo">Volvo</option>
-        				</select>
+                <input type="color" id="tileColor" value="#4c9900"> <br>
                 <input type="text" id="lessonName" placeholder="Nazwa lekcji" class="css-input" /> <br>
                </fieldset>
               </form>
@@ -64,12 +62,15 @@
 			var text=document.getElementById('article').innerHTML;
 			//text = encodeURI(text);
 			text = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+
 			var title=document.getElementById('lessonName').value;
+			var tileColor=document.getElementById('tileColor').value;
 			var msg={
       "login":getCookie("login"),
       "password":getCookie("password"),
-	  "content":text,
-	  "title":title
+	  "content":toUnicode(text),
+	  "title":title,
+	  "tileColor":tileColor
 		};
 			
            sendPostRequest(msg,"php/tools/articleEditor/addNewArticle.php",function(response) {
@@ -80,6 +81,101 @@
            else message(response.error,"error");
         });
 	}
+	
+	var imgOnEdit = 0;
+	
+	function editImg(img)
+	{
+		if(!imgOnEdit)
+		{
+		let oldImg=img.src;
+		let oldWidth=img.style.width;
+		if(oldWidth == "") oldWidth="5%";
+		imgOnEdit=1;
+		var imgWindow = addNewElement('div','tools-window',document.body,'');
+		imgWindow.id="editImgWindow";
+		var close = addNewElement("div","tool button-close",imgWindow,'',"click",function(){img.src=oldImg;img.style.width=oldWidth;let parent = imgWindow.parentElement;parent.removeChild(imgWindow);imgOnEdit=0});
+		var link = addNewElement("input","css-input css-input-link",imgWindow,'',"keyup",function(){img.src=link.value});
+		var moveEditImgWindow = addNewElement("div","tool",imgWindow,'');
+		moveEditImgWindow.id="moveEditImgWindow";
+		link.value=img.src;
+		var accept = addNewElement("div","tool button-accept",imgWindow,'',"click",function(){img.src=link.value;let parent = imgWindow.parentElement;parent.removeChild(imgWindow);imgOnEdit=0});
+		var range = addNewElement("input","css-input css-input-range",imgWindow,'',"mousemove",function(){img.style.width=range.value+"%"});
+		range.type="range";
+		range.id="rangeImgSize";
+		range.max="100";
+		range.min="5";
+		range.value=parseInt(oldWidth);
+		
+		$(document).ready(function(){
+
+		$("#editImgWindow").draggable();
+		$("#editImgWindow").draggable("disable");
+		$("#editImgWindow").draggable({
+		  containment: "window"
+		});
+
+				$("#moveEditImgWindow").mouseenter(function(){
+
+					$("#editImgWindow").draggable("enable");
+		});
+		$("#moveEditImgWindow").mouseleave(function(){
+
+			$("#editImgWindow").draggable("disable");
+
+		});
+		
+		});
+		}
+		else
+		{
+			message("Nie możesz edytować kilku zdjęć jednocześnie!","error");
+			message("Zamknij okno edycji zdjęć by móc edytować kolejne zdjęcia","info");
+		}
+	}
+	
+	function editCode(code)
+	{
+		
+	
+		if(!imgOnEdit)
+		{
+		imgOnEdit=1;
+		var codeWindow = addNewElement('div','tools-window',document.body,'');
+		codeWindow.id="editCodeWindow";
+		
+		var close = addNewElement("div","tool button-close",codeWindow,'',"click",function(){let parent = codeWindow.parentElement;parent.removeChild(codeWindow);imgOnEdit=0});
+		
+		var accept = addNewElement("div","tool button-accept",codeWindow,'',"click",
+				function(){
+						code.innerHTML="";
+						addNewElement('code','language-'+select.value,code,toUnicode(textarea.value));
+						let parent = codeWindow.parentElement;
+						parent.removeChild(codeWindow);
+						imgOnEdit=0
+						Prism.highlightAll();
+						});
+		
+		var select = addNewElement("select","input-css input-css-select",codeWindow,'');
+		select.id="editCodeSelect";
+		
+		addNewElement("option","input-css input-css-option",select,'JavaScript').value="javascript";
+		addNewElement("option","input-css input-css-option",select,'C++').value="cpp";
+		addNewElement("option","input-css input-css-option",select,'CSS').value="css";
+		addNewElement("option","input-css input-css-option",select,'HTML').value="markup";
+		addNewElement("option","input-css input-css-option",select,'PHP').value="php";
+		
+		var textarea = addNewElement("textarea","input-css",codeWindow,'Wklej tu swój kod...');
+			textarea.id="editCodeTextarea";
+		}
+		else
+		{
+			message("Nie możesz edytować kilku zdjęć jednocześnie!","error");
+			message("Zamknij okno edycji zdjęć by móc edytować kolejne zdjęcia","info");
+		}
+	}
+	
+	
 </script>
 </div>
 <article id="article">

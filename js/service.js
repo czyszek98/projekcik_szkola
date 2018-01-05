@@ -382,7 +382,7 @@ function loadLesson(lessonId)
               var content=document.getElementById("content");
               content.innerHTML="";
 
-              content.innerHTML=decodeURIComponent(response.content);
+              content.innerHTML=response.content;
 
 
            }

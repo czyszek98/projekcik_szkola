@@ -21,7 +21,8 @@ body{
 }
 
 .image{
-	content:url("../img/add-image.png");
+	max-width:100%;
+	width:5%;
 }
 
 .table{
@@ -38,6 +39,7 @@ body{
 }
 
 .code{
+	font-size:19px;
 }
 
 .list{

@@ -241,6 +241,16 @@ function message(msg,type)
 	},1000);
 };
 
+function toUnicode(str) {
+	return str.split('').map(function (value, index, array) {
+		var temp = value.charCodeAt(0).toString(16).toUpperCase();
+		if (temp.length > 2) {
+			return '\\u' + temp;
+		}
+		return value;
+	}).join('');
+}
+
 function sendPostRequest(msg,url, callback)
 {
    console.log("<STRING WYSŁANY DO '"+url+"'>\n"+JSON.stringify(msg));
