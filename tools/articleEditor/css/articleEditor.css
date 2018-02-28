@@ -165,6 +165,7 @@
 #editCodeTextarea{
 	margin:2%;
 	border-radius:5px;
+	min-margin-top:40px;
 	width:95%;
 	height:92%;
 	resize:none;
@@ -172,6 +173,6 @@
 
 #editCodeSelect{
 	position:absolute;
-	left:5px;
+	left:15px;
 	top:5px;
 }

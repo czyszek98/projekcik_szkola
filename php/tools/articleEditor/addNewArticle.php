@@ -6,6 +6,7 @@ $json = $_POST["request"];
 
 $obj = json_decode($json);
 
+//echo $json;
 
 
 
@@ -20,7 +21,12 @@ if($result->num_rows > 0)
 		{
 			$userId=$row['id'];
 			
-			$query="INSERT INTO `lessons` (`id`, `userId`, `name`, `background`, `content`) VALUES (NULL, '$userId', '$obj->title', '$obj->tileColor', 'urlencode($obj->content'))";
+				$str = $obj->content;
+				
+				$str = htmlentities($str,  ENT_HTML5, "UTF-8");
+			
+			
+			$query="INSERT INTO `lessons` (`id`, `userId`, `name`, `background`, `content`) VALUES (NULL, '$userId', '$obj->title', '$obj->tileColor', '$str')";
 			
 			if($result = $mysql->query($query))
 			{

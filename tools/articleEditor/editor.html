@@ -60,18 +60,26 @@
 	function saveAndSubmit()
 	{
 			var text=document.getElementById('article').innerHTML;
+			
+			text = text.replace(/(?:\r\n|\r|\n)/g, "<br>");
+			
+			//text = text.replace(/'/g, "\\'");
+			
+			text = String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+			
+			
+			
 			//text = encodeURI(text);
-			text = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-
+			
 			var title=document.getElementById('lessonName').value;
 			var tileColor=document.getElementById('tileColor').value;
 			var msg={
-      "login":getCookie("login"),
-      "password":getCookie("password"),
-	  "content":toUnicode(text),
-	  "title":title,
-	  "tileColor":tileColor
-		};
+			  "login":getCookie("login"),
+			  "password":getCookie("password"),
+			  "content":text,
+			  "title":title,
+			  "tileColor":tileColor
+			};
 			
            sendPostRequest(msg,"php/tools/articleEditor/addNewArticle.php",function(response) {
            if(response.code[0] === 200)
@@ -149,7 +157,8 @@
 		var accept = addNewElement("div","tool button-accept",codeWindow,'',"click",
 				function(){
 						code.innerHTML="";
-						addNewElement('code','language-'+select.value,code,toUnicode(textarea.value));
+						var text =textarea.value;
+						addNewElement('code','language-'+select.value,code,text.replace(/&/g, "&#38"));
 						let parent = codeWindow.parentElement;
 						parent.removeChild(codeWindow);
 						imgOnEdit=0

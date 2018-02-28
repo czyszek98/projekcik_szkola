@@ -172,7 +172,6 @@ function loadSubjectApps(subjectId)
       "subjectId":parseInt(subjectId)
   };
 
-
            sendPostRequest(msg,"php/subjectApps.php",function(response) {
            if(response.code[0] === 200)
            {

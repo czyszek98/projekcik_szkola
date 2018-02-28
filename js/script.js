@@ -241,20 +241,35 @@ function message(msg,type)
 	},1000);
 };
 
+function backslash(str) {
+	
+
+	str = str.replace(/'/g, "\\\\\'");
+	str = str.replace(/"/g, "\\\\\"");
+	str = str.replace(/\n/g, "\\\\\n");
+	str = str.replace(/\t/g, "\\\\\t");
+	str = str.replace(/\r/g, "\\\\\r");
+
+	return str;
+}
+
 function toUnicode(str) {
-	return str.split('').map(function (value, index, array) {
-		var temp = value.charCodeAt(0).toString(16).toUpperCase();
-		if (temp.length > 2) {
-			return '\\u' + temp;
-		}
-		return value;
-	}).join('');
+
+	//str = str.replace(/&/g, "&#38");
+	str = str.replace(/'/g, "&#39");
+	str = str.replace(/"/g, "&#34");
+	str = str.replace(/\n/g, "&#10");
+	str = str.replace(/\t/g, "&#10");
+	str = str.replace(/\r/g, "&#10");
+
+	return str;
 }
 
 function sendPostRequest(msg,url, callback)
 {
    console.log("<STRING WYSŁANY DO '"+url+"'>\n"+JSON.stringify(msg));
     var xmlHttp = new XMLHttpRequest();
+	
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         {

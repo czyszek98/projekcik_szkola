@@ -140,6 +140,10 @@ display:none;
 	text-align:center;
 
 }
+
+/*//////////////////////////////KAFELKI////////////////////////////*/
+
+/*
 .tile
 {
 	width:20%;
@@ -174,6 +178,51 @@ display:none;
 {
 	background-color:#66cc00;
 }
+*/
+
+
+.tile
+{
+	width:20%;
+	height:14vw;
+	background-color:#4c9900;
+	float:left;
+	margin:2.5%;
+	text-align:center;
+	font-size:2.5vw;
+	color:white;
+	  box-shadow: 7px 7px 3px 0px rgba(155,155,155,1);
+	  border-radius:5px 5px 5px 5px;
+    padding: 0;
+    position: relative;
+    
+	 
+	
+}
+
+.tile p
+{
+	font-weight:bold;
+	text-shadow: 1px 1px black;
+	overflow: hidden;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    margin 0;
+}
+
+.tile:hover
+{
+	background: linear-gradient(#336600,#4c9900, #808080);
+
+}
+.tile:active
+{
+	background-color:#66cc00;
+}
+
+/*///////////////////////////////////////////////////////////////////////*/
+
 
 #overlaps
 {
