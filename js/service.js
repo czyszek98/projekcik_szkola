@@ -522,6 +522,29 @@ function loadOverlaps()
         });
 }
 
+function loadUserStat()
+{
+    
+        let content = document.getElementById("content");
+            content.innerHTML="";
+    
+        let row = addNewElement("div","row",content,"");
+        let lvl = addNewElement("div","col-5 primary",row,"62").id = "lvl";
+        let score = addNewElement("div","col-7 warrning vertical middle",row,"123").id = "score";
+        let window_1 = addNewElement("div","col-6 danger",row,"");
+            addNewElement("p","header",window_1,"Zdobyte odznaki");
+            let window_1_tiles = addNewElement("div","tiles",window_1,"");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+                addNewElement("div","tile",window_1_tiles,"<p>J.angielski<span class=\"triangle\"></span></p>");
+            
+    let window_2 = addNewElement("div","col-6 danger",row,"asd");
+    let window_3 = addNewElement("div","col-6 danger",row,"asd");
+    let window_4 = addNewElement("div","col-6 danger",row,"asd");
+}
 
 function controller()
 {
@@ -602,6 +625,10 @@ function controller()
 
               case "menu":
                   loadMenuitems(hash.id);
+              break;
+                    
+              case "userStat":
+                  loadUserStat();
               break;
 
               default:

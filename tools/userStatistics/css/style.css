@@ -1,0 +1,148 @@
+#user
+{
+	width: 20%;
+	height: 10%;
+}
+#front{
+    
+}
+#score
+{
+    position: relative;
+    border-radius:0 5px 5px 0;
+    text-align: center; 
+    height: 7.5vw;
+    top:4.8vw;
+    left:-1vw;
+    font-size:5vw;
+    line-height:7.7vw;
+    
+    
+}
+#lvl
+{
+    position: relative;
+    border-radius: 100%;
+    text-align: center;
+    height: 17vw;
+    font-size:10vw;
+    line-height:17vw;
+    z-index:1;
+}
+
+.primary{
+    background-color:#22bbff;
+}
+.danger{
+    background-color: #e55050;
+}
+.warrning{
+    background-color: #eac138;
+}
+.succes{
+    background-color: #1fd93c;
+}
+
+.center{
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.header{
+    padding:0;
+    margin: 0;
+    font-size:23px;
+    
+}
+
+.tile
+{
+    width: 23%;
+    height: 14%;
+    float: left;
+    margin: 5px;
+    background-color: #fff;
+}
+
+.tile p
+{
+    position: relative;
+    top:-45px;
+    border:black solid 2px;
+    background-color: #989898;
+    z-index: 1;
+}
+.tile .triangle
+{
+    position: relative;
+    transform: rotate(45deg);
+    top:-62%;
+    left:10px;
+    width:11%;
+    height:12%;
+    background-color: #989898;
+    border-bottom:1px solid black;
+    border-right:1px black solid;
+}
+.tile:hover
+{
+	background: linear-gradient(#336600,#4c9900, #808080);
+}
+.tile:active
+{
+	background-color:#66cc00;
+}
+
+
+
+.col-1{
+    float: left;
+    width:8.3%;
+}
+.col-2{
+    float: left;
+    width: 16.6%;
+}
+.col-3{
+    width: 25%;
+    float: left;
+}
+.col-4{
+    float: left;
+    width: 33.3%;
+}
+.col-5{
+    float: left;
+    width: 41.6%;
+}
+.col-6{
+    width: 50%;
+    float: left;
+}
+.col-7{
+    float: left;
+    width: 58.3%;
+}
+.col-8{
+    float: left;
+    width: 66.6%;
+}
+.col-9{
+    float: left;
+    width: 75%;
+}
+.col-10{
+    float: left;
+    width: 83.3%;
+}
+
+.col-11{
+    float: left;
+    width: 91.6%
+}
+.col-12{
+    width:100%;
+    float: left;
+}
